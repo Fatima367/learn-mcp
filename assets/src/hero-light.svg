@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="t d" xmlns:c2pa="http://c2pa.org/manifest">
+  <title id="t">Build and Sell MCP Apps: Hands-On CCDV-F Prep</title>
+  <desc id="d">Claude and ChatGPT connect to your multi-tenant remote MCP server on Cloudflare Workers, which serves tools, widgets and skills backed by Neon Postgres, row-level security, pgvector, Durable Objects, Queues and Workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#f5f7fc"/>
+      <stop offset="1" stop-color="#f4effd"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.55" r="0.45">
+      <stop offset="0" stop-color="#f38020" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#f38020" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="server" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f6f7fc"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f38020"/>
+      <stop offset="1" stop-color="#ff5fa2"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1b2550" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#5b6cff"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <rect width="1280" height="640" fill="url(#glow)"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <!-- Left: title block -->
+    <text x="64" y="92" fill="#c2410c" font-size="16" font-weight="600" letter-spacing="2.5">THE AI AGENT FACTORY · HANDS-ON COMPANION</text>
+    <text x="64" y="168" fill="#0f1530" font-size="64" font-weight="800">Build and Sell</text>
+    <text x="64" y="240" fill="url(#accent)" font-size="64" font-weight="800">MCP Apps</text>
+    <text x="64" y="296" fill="#3b4470" font-size="24">Remote, multi-tenant MCP servers with generative UI,</text>
+    <text x="64" y="328" fill="#3b4470" font-size="24">built step by step with Claude Code.</text>
+
+    <!-- badges -->
+    <g font-size="18" font-weight="700">
+      <rect x="64" y="368" width="168" height="40" rx="20" fill="#f38020" fill-opacity="0.16" stroke="#f38020"/>
+      <text x="148" y="394" fill="#b45309" text-anchor="middle">CCDV-F prep</text>
+      <rect x="244" y="368" width="168" height="40" rx="20" fill="#5b6cff" fill-opacity="0.14" stroke="#5b6cff"/>
+      <text x="328" y="394" fill="#3f51b5" text-anchor="middle">PCDV-F prep</text>
+      <rect x="424" y="368" width="124" height="40" rx="20" fill="#3ddc97" fill-opacity="0.14" stroke="#3ddc97"/>
+      <text x="486" y="394" fill="#047857" text-anchor="middle">21 steps</text>
+    </g>
+
+    <text x="64" y="470" fill="#5b6488" font-size="18">Sign-in and tenants · Neon + row-level security · pgvector search</text>
+    <text x="64" y="498" fill="#5b6488" font-size="18">React widgets · Skills · Durable Objects · Queues · Workflows</text>
+    <text x="64" y="526" fill="#5b6488" font-size="18">Tasks · Events · Evals · Billing · Capstone</text>
+
+    <text x="64" y="590" fill="#7a83a6" font-size="16">Learn by building · Deploy to Cloudflare · Test in Claude and ChatGPT</text>
+
+    <!-- Right: architecture -->
+    <!-- clients -->
+    <g font-size="18" font-weight="700" text-anchor="middle">
+      <rect x="700" y="70" width="230" height="56" rx="14" fill="#ffffff" fill-opacity="1" stroke="#d97757" stroke-width="2"/>
+      <circle cx="728" cy="98" r="9" fill="#d97757"/>
+      <text x="822" y="104" fill="#0f1530">Claude</text>
+      <rect x="960" y="70" width="230" height="56" rx="14" fill="#ffffff" fill-opacity="1" stroke="#10a37f" stroke-width="2"/>
+      <circle cx="988" cy="98" r="9" fill="#10a37f"/>
+      <text x="1082" y="104" fill="#0f1530">ChatGPT</text>
+    </g>
+
+    <!-- arrows to server -->
+    <path d="M815 128 V176" stroke="#5b6cff" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M1075 128 V176" stroke="#5b6cff" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="945" y="160" fill="#5b6cff" font-size="15" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">OAuth · /mcp</text>
+
+    <!-- server box -->
+    <rect x="680" y="184" width="530" height="250" rx="20" fill="url(#server)" stroke="#f38020" stroke-width="2"/>
+    <text x="704" y="220" fill="#b45309" font-size="15" font-weight="700" letter-spacing="2">YOUR MCP SERVER · CLOUDFLARE WORKERS</text>
+
+    <!-- widget mock -->
+    <rect x="704" y="238" width="250" height="176" rx="12" fill="#f3f5ff" stroke="#c9d0ee"/>
+    <text x="720" y="264" fill="#0f1530" font-size="15" font-weight="700">Sales this quarter</text>
+    <text x="720" y="284" fill="#5b6488" font-size="12">Widget chosen from intent</text>
+    <g fill="url(#accent)">
+      <rect x="724" y="352" width="26" height="46" rx="4"/>
+      <rect x="760" y="330" width="26" height="68" rx="4"/>
+      <rect x="796" y="340" width="26" height="58" rx="4"/>
+      <rect x="832" y="312" width="26" height="86" rx="4"/>
+      <rect x="868" y="300" width="26" height="98" rx="4"/>
+      <rect x="904" y="318" width="26" height="80" rx="4"/>
+    </g>
+
+    <!-- primitives -->
+    <g font-size="14" font-weight="600">
+      <rect x="966" y="238" width="228" height="38" rx="10" fill="#ffffff" fill-opacity="1" stroke="#c3cae8"/>
+      <text x="980" y="263" fill="#1f2a52">Tools · Resources · Prompts</text>
+      <rect x="966" y="284" width="228" height="38" rx="10" fill="#ffffff" fill-opacity="1" stroke="#c3cae8"/>
+      <text x="980" y="309" fill="#1f2a52">MCP Apps widgets</text>
+      <rect x="966" y="330" width="228" height="38" rx="10" fill="#ffffff" fill-opacity="1" stroke="#c3cae8"/>
+      <text x="980" y="355" fill="#1f2a52">Skills · Tasks · Events</text>
+      <rect x="966" y="376" width="228" height="38" rx="10" fill="#3ddc97" fill-opacity="0.10" stroke="#3ddc97"/>
+      <text x="980" y="401" fill="#047857">Tenant context, every call</text>
+    </g>
+
+    <!-- arrow to data -->
+    <path d="M945 436 V478" stroke="#5b6cff" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+    <!-- data layer -->
+    <g font-size="15" font-weight="700" text-anchor="middle">
+      <rect x="680" y="486" width="166" height="54" rx="12" fill="#00b377" fill-opacity="0.10" stroke="#00b377"/>
+      <text x="763" y="509" fill="#047857">Neon Postgres</text>
+      <text x="763" y="529" fill="#0f766e" font-size="12" font-weight="500">row-level security</text>
+      <rect x="862" y="486" width="166" height="54" rx="12" fill="#00b377" fill-opacity="0.10" stroke="#00b377"/>
+      <text x="945" y="509" fill="#047857">pgvector</text>
+      <text x="945" y="529" fill="#0f766e" font-size="12" font-weight="500">cite or abstain</text>
+      <rect x="1044" y="486" width="166" height="54" rx="12" fill="#f38020" fill-opacity="0.12" stroke="#f38020"/>
+      <text x="1127" y="509" fill="#9a3412">Better Auth + D1</text>
+      <text x="1127" y="529" fill="#b45309" font-size="12" font-weight="500">SSO · companies</text>
+
+      <rect x="680" y="552" width="166" height="44" rx="12" fill="#f38020" fill-opacity="0.12" stroke="#f38020"/>
+      <text x="763" y="580" fill="#9a3412">Durable Objects</text>
+      <rect x="862" y="552" width="166" height="44" rx="12" fill="#f38020" fill-opacity="0.12" stroke="#f38020"/>
+      <text x="945" y="580" fill="#9a3412">Queues</text>
+      <rect x="1044" y="552" width="166" height="44" rx="12" fill="#f38020" fill-opacity="0.12" stroke="#f38020"/>
+      <text x="1127" y="580" fill="#9a3412">Workflows</text>
+    </g>
+  </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpkM2Q5YWFhZS1kYWFlLTQxNDgtYjM1Ny1lZDBiNzA4MzBiMGUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaBzmELN+xGRKGxgdcFAnxH8AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxNDdiYWYwZC04MmIxLTQ2N2UtYTMwZS1mNDdkODliOWM0YTVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNomknjM2OhiruYnJNi2Dn8fgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggq5vuAnA8Ws1/9d0QzrSZ6fsAEFK+hc25Eu4u85ol97OkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCADk1725R5FkIByJK/yCy4AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIDWOlCs5y/EZUX7p/KNmRv2Z3hyo2br4Y15ROaipLOV+ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GR9wZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmQzZDlhYWFlLWRhYWUtNDE0OC1iMzU3LWVkMGI3MDgzMGIwZS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmEwNDEyM2M1LTlmNTYtNDBmMS04N2ZmLTkyOWFlNTY0ZGE1MHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCrm+4CcDxazX/13RDOtJnp+wAQUr6FzbkS7i7zmiX3s6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggVzamPNUYJe6IOHvYKCGXrRGIJdMKmkMEUUUzSjQ7S/+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggF+umXlTkoqv6SD8RxhA4jA0iTrf5hA4mWDnlFClVkWl0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQDPYzT/ZYO0kaB5k2YAweUM1HrsASxxKQNePWEvItRT2WqeG/6IkXf2caIxaMRhRCCmX9x0nD3Hl1+UXtD8UNao=</c2pa:manifest></metadata></svg>

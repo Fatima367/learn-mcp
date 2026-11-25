@@ -1,0 +1,155 @@
+# Step 01: Hello World: A Minimal Remote MCP Server on Cloudflare
+
+> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
+
+Build and deploy the smallest useful remote MCP server: one tool, written in TypeScript, running on Cloudflare Workers, and connected to Claude and ChatGPT.
+
+## Learn first
+
+This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+
+- [12.1 From a chat to a coding agent](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/from-chat-to-coding-agent/). How to drive Claude Code to build the server.
+- [14.7 JSON and REST APIs](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/json-and-rest-apis/). MCP is JSON over HTTP, so you'll read a lot of requests and responses.
+- [17.1 MCP in one picture](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Client, server, tool call and reply in one diagram.
+- [Field guide F1, Cloudflare from zero](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f1-cloudflare-from-zero-and-running-the-servers-on-your-computer). What a Worker is and how to run one locally.
+- [Field guide F2, The MCP Inspector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f2-the-mcp-inspector). Test the server before connecting a client.
+
+**Official docs.** Keep these open while you build:
+
+- [MCP specification (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28). The protocol itself: hosts, clients, servers and messages.
+- [MCP: Streamable HTTP transport](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http). How a remote server talks to clients at `/mcp`.
+- [MCP: Tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools). Tool names, descriptions and input schemas.
+- [MCP Inspector](https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector). Testing your server before connecting a client.
+- [Cloudflare Workers: get started](https://developers.cloudflare.com/workers/get-started/guide/). Creating, running and deploying a Worker.
+- [Cloudflare: Model Context Protocol](https://developers.cloudflare.com/agents/model-context-protocol/). Cloudflare's guide to remote MCP servers.
+- [Cloudflare: MCP handler API (`createMcpHandler`)](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/). The stateless handler this course uses to serve `/mcp`. (The older `McpAgent` class is deprecated, so don't follow tutorials that use it.)
+- [Cloudflare: workers.dev routes](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/). Where your public `/mcp` URL comes from.
+
+## Why this step matters
+
+Everything else in this course builds on a server that is reachable over the internet. Before adding auth, databases or UI, we want the full loop working end to end: write a tool, deploy it, connect a client, and watch the model call it.
+
+## Why this technology in an MCP server: Cloudflare Workers and Streamable HTTP
+
+- **What it is.** Cloudflare Workers run your TypeScript on Cloudflare's global network. Streamable HTTP is the MCP transport that lets a client talk to a server over an ordinary HTTPS URL, here `/mcp`.
+- **Why an MCP server uses it.** claude.ai, Claude Desktop connectors and ChatGPT all connect to **remote** MCP servers by URL. A remote server is installed once and used by every client and every user, with nothing to install on their computers. Workers give you that URL with no server to manage, start instantly, scale down to zero when idle, and have a free plan, which suits a server that may get ten calls a day or ten thousand.
+- **What it solves.** A local (stdio) server only runs on one person's computer and can't be reached from claude.ai on the web or from ChatGPT. A remote server can, so it can serve paying clients.
+- **Alternatives.** Node.js on a container or VM (Fly.io, Render, Google Cloud Run), or serverless functions on Vercel or AWS Lambda. For tools that must touch a user's own files or apps, a local server packaged as an MCPB bundle. The book and this course standardize on Cloudflare.
+
+## What you will learn
+
+- Explain what an MCP server is, and how a *remote* server (Streamable HTTP) differs from a *local* one (stdio)
+- Scaffold a TypeScript MCP server for Cloudflare Workers
+- Define a first tool with a name, description and typed input schema
+- Run the server locally and inspect it with the MCP Inspector
+- Deploy it to Cloudflare and get a public `/mcp` URL
+- Add the server as a custom connector in claude.ai and Claude Desktop, then in ChatGPT developer mode, and call the tool from a chat
+
+## What you will build
+
+A server with a single `greet` tool (and a second `get_time` tool to show more than one tool), deployed to `*.workers.dev` as a Worker named `learn-mcp-step-01`.
+
+## Key concepts
+
+- **Hosts, clients and servers**: Claude or ChatGPT is the host. It runs an MCP client that connects to our server.
+- **Transports**: Remote servers speak Streamable HTTP. Local servers usually use stdio.
+- **Tools**: Functions the model can call, each described by a name, a description and a JSON Schema for its inputs.
+- **Capabilities and initialization**: How client and server agree on what each supports when they connect.
+- **A stateless server**: We serve `/mcp` with Cloudflare's `createMcpHandler` and MCP SDK v2. Two things have different lifetimes here. The handler is created once, when the Worker starts. For every request, the handler calls your factory function, which builds a fresh MCP server, registers the tools and answers that one request. No protocol session is kept, which matches the current MCP spec and lets any copy of the Worker answer any request. Anything that must last between calls goes in a store (KV, D1, Neon or a Durable Object), never in memory.
+
+## Planned outline
+
+1. Project setup: Node, Wrangler and the Cloudflare account
+2. Scaffolding the Worker and the MCP server
+3. Writing the `greet` tool
+4. Testing locally with the MCP Inspector
+5. Deploying with `wrangler deploy`
+6. Connecting from claude.ai and Claude Desktop
+7. Connecting from ChatGPT (developer mode)
+8. Troubleshooting common connection errors
+
+## Prerequisites
+
+- None. This is the first step.
+- The tools and accounts listed in the [main README](../README.md#prerequisites)
+
+## Build it with Claude Code
+
+Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+
+> These prompts are a draft and will be refined as the step is developed.
+
+**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then switch to plan mode so Claude plans before it writes code. All code for this step goes in `step-01-hello-world/`.**
+
+```text
+Use the build-mcp-server skill. I want a minimal remote MCP server in TypeScript, deployed to Cloudflare Workers over Streamable HTTP, with no auth yet. Serve /mcp with Cloudflare's stateless createMcpHandler (from agents/mcp/server) and MCP SDK v2, following the handler API docs linked in this step, not the deprecated McpAgent class. Create the handler once at module level, and give it a factory that builds a new McpServer and registers the tools on every request. Nothing about a request may be kept in module scope. Ask me any questions you need, then propose a plan and a file layout before writing code.
+```
+
+**2. Approve the plan, then let Claude scaffold the project.**
+
+```text
+Scaffold the project in step-01-hello-world/: package.json, tsconfig, wrangler config and the server entry point. Name the Worker learn-mcp-step-01 and expose the MCP endpoint at /mcp. Leave the existing README.md in that folder unchanged, because it belongs to the course. Explain each file in one or two sentences.
+```
+
+**3. Add the first tools.**
+
+```text
+Add two tools: `greet`, which takes a required `name` string and returns a friendly greeting, and `get_time`, which takes an optional IANA `timezone` and returns the current time. Write clear descriptions and input schemas.
+```
+
+**4. Run it locally and inspect it.**
+
+```text
+Start the server locally and tell me how to open the MCP Inspector against it. Then list the tools and call each one so we can see the responses.
+```
+
+**5. Prove the server keeps no state between requests.**
+
+```text
+Add a test with Vitest and the Workers test pool that sends 20 concurrent tools/call requests with different names to greet and checks that each response has its own name. Then explain what would break if the McpServer were created once at module level instead of inside the factory.
+```
+
+**6. Deploy to Cloudflare.**
+
+```text
+Walk me through logging in to Wrangler and deploying this Worker. After deploying, tell me the exact MCP URL to use in clients.
+```
+
+**7. Connect from Claude and ChatGPT. This part happens in their settings, not in Claude Code.**
+
+```text
+Give me step-by-step instructions to add this server as a custom connector in claude.ai, Claude Desktop and ChatGPT developer mode, and a test prompt for each that should make the model call `greet`.
+```
+
+**8. Commit when everything works.**
+
+```text
+Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the course), and commit with a descriptive message.
+```
+
+## Testing targets
+
+- claude.ai and Claude Desktop (primary)
+- ChatGPT (developer mode)
+
+## Submission checklist
+
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+
+- [ ] Your fork is synced with the course repo
+- [ ] All code for this step is in `step-01-hello-world/` and pushed to your fork
+- [ ] No secrets are committed (`.dev.vars.example` only)
+- [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
+- [ ] It works in claude.ai or Claude Desktop
+- [ ] It works in ChatGPT (developer mode)
+- [ ] Tagged and pushed: `git tag step-01-done && git push origin step-01-done`
+- [ ] Submitted in the form: fork URL, tag `step-01-done`, live server URL, and screenshots of the model calling `greet` in **Claude** and **ChatGPT**
+
+## References
+
+- [MCP: Getting started](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
+- [Cloudflare: Model Context Protocol](https://developers.cloudflare.com/agents/model-context-protocol/)
+
+---
+
+[Roadmap](../README.md#roadmap) · [Step 02: Designing Good Tools](../step-02-tool-design/) →

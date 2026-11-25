@@ -1,0 +1,144 @@
+# Step 16: Security Hardening for MCP Servers
+
+> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
+
+Your server now holds business data, acts for signed-in users, runs background jobs and shows screens in the chat, which makes it worth attacking. This step reviews and hardens the whole server against the threats specific to MCP: prompt injection through tool results and widget text, tokens meant for another server, over-powerful tools, unvalidated input, leaked secrets and data that should not leave. You finish with a written threat model and tests that prove each fix.
+
+## Learn first
+
+This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+
+- [17.7 Untrusted output, and data that should not leave](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). Treating what tools return as untrusted, and keeping private data in.
+- [17.8 Putting a connector online safely](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/). Access keys, Origin checks and staging.
+- [18.6 A token made for one door](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/a-token-made-for-one-door/). Checking that every token was issued for your server (its audience).
+- [18.7 Permission per tool](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/permission-per-tool/). Scopes per tool, 403 responses and step-up.
+- [18.4 Two guards for the code](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/two-guards-for-the-code/). Two independent checks for every rule that matters.
+- [20.5 Hidden is not protected](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/hidden-is-not-protected/) and [20.7 Untrusted text on the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). What a widget must never rely on, and showing text you didn't write safely.
+- *Optional:* [19.10 Where the guarantee stops](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Where row-level security stops protecting you.
+
+**Official docs.** Keep these open while you build:
+
+- [MCP security best practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices). The MCP-specific attacks and their defenses.
+- [MCP: Authorization security considerations](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations). Token audience, redirect URIs and token passthrough.
+- [OWASP: Prompt injection (LLM01)](https://genai.owasp.org/llmrisk/llm01-prompt-injection/). How injected instructions reach a model, and how to limit the damage.
+- [Cloudflare Workers: secrets](https://developers.cloudflare.com/workers/configuration/secrets/). Storing and rotating secrets.
+- [Cloudflare: rate limiting binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/). Limiting abuse per user or per IP.
+
+## Why this step matters
+
+A client will ask "is it safe?" before they connect your server to their business. MCP servers face the usual web risks plus new ones: text in a customer record can try to instruct the model, a token stolen from another app can be replayed at your server, and a tool that can do too much turns one mistake into a breach. Security review is also part of what Claude's directory and client security teams check before they accept a connector.
+
+## Why this technology in an MCP server: security hardening
+
+- **What it is.** A threat model of the server, followed by fixes: token audience checks, least-privilege tools and scopes, strict input validation, output handling that treats data as data, secret hygiene, rate limits and audit logs.
+- **Why an MCP server uses it.** An MCP server acts on a person's behalf with whatever the model asks it to do, and the model can be steered by text in tool results. The server is the last place you control, so it must enforce the rules itself rather than trusting the model, the client or the widget.
+- **What it solves.** Prompt injection that turns a read into a write, tokens accepted from the wrong issuer or for the wrong server, data from one user reaching another, secrets in logs or git, and abuse that runs up your costs.
+- **Alternatives.** None replace this work. Gateways, web application firewalls and Cloudflare's own protections help at the edge, and a security review by a specialist helps before a big client launch, but the server's own checks are what make it safe.
+
+## What you will learn
+
+- Write a threat model for an MCP server: who can call it, what each tool can do, and what could go wrong
+- Check every token's issuer, audience and expiry, and never pass a user's token on to another service
+- Shrink each tool to the least it needs, with scopes per tool and confirmations for destructive actions
+- Validate every input strictly, and treat text from the database, imports and events as data, never as instructions
+- Keep secrets out of code, logs and tool results, and rotate them
+- Add rate limits and an audit log of who did what
+
+## What you will build
+
+A hardened version of the server, plus `SECURITY.md` in the step folder: the threat model, each risk and its fix, and the test that proves it. Tests cover a token for another audience being refused, one user never reaching another's data, an injected instruction in an order note not causing a write, oversized or malformed input being rejected, and secrets never appearing in logs or tool results.
+
+## Key concepts
+
+- **Threat model**: A list of what you protect, who might attack it, and how.
+- **Token audience**: The server a token was issued for. A server must refuse tokens meant for someone else.
+- **Prompt injection**: Text in data that tries to give the model instructions. The server limits what any instruction can make it do.
+- **Least privilege**: Each tool, role and token gets only what it needs.
+- **Defense in depth**: Two independent guards for every rule that matters, such as tool checks plus row-level security.
+- **Audit log**: A record of who called which tool, when, with what result.
+
+## Planned outline
+
+1. Threat modelling an MCP server
+2. Tokens: issuer, audience, expiry and no passthrough
+3. Least-privilege tools, scopes and confirmations
+4. Input validation and output handling
+5. Prompt injection through data, imports, events and widgets
+6. Secrets, rate limits and audit logs
+7. Proving each fix with tests
+
+## Prerequisites
+
+- [Step 15](../step-15-events/)
+- The tools and accounts listed in the [main README](../README.md#prerequisites)
+
+## Build it with Claude Code
+
+Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+
+> These prompts are a draft and will be refined as the step is developed.
+
+**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 15 code into `step-16-security-hardening/`.**
+
+```text
+Copy my step-15 code into step-16-security-hardening/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-16 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-16 from my step-15 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+```
+
+**2. Switch to plan mode and write the threat model.**
+
+```text
+Read the MCP security best practices and the authorization security considerations linked in this step. Then review this whole server (tools, resources, prompts, widgets, skills, Durable Objects, queues, workflows, tasks and events) and write a threat model in step-16-security-hardening/SECURITY.md: assets, attackers, entry points and the top risks, ranked. Don't change code yet.
+```
+
+**3. Harden tokens and permissions.**
+
+```text
+Make sure every request's token is checked for issuer, audience (this server only) and expiry, and that no user token is ever passed on to another service. Add scopes per tool, require confirmation for destructive tools, and return clear 401 and 403 responses.
+```
+
+**4. Validate input and handle output safely.**
+
+```text
+Tighten every tool's input schema and server-side validation (lengths, ranges, enums and formats). Treat text from the database, CSV imports and events as data: never follow instructions found in it, mark it as untrusted in tool results, and escape it in widgets. Add a test where an order note contains an injected instruction and show that it can't cause a write.
+```
+
+**5. Secrets, limits and audit.**
+
+```text
+Check that no secret appears in code, logs, errors or tool results, and document how to rotate each one. Add per-user rate limits where they are missing and an audit log of tool calls (user, tool, time, result, never secrets or full personal data).
+```
+
+**6. Prove it.**
+
+```text
+Write tests for each risk in SECURITY.md and run them. Update SECURITY.md with each risk, its fix and the test that proves it, then deploy and walk me through a quick manual check in Claude and ChatGPT.
+```
+
+## Testing targets
+
+- claude.ai and Claude Desktop (primary)
+- ChatGPT (developer mode)
+
+## Submission checklist
+
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+
+- [ ] Your fork is synced with the course repo
+- [ ] All code for this step is in `step-16-security-hardening/` and pushed to your fork
+- [ ] No secrets are committed (`.dev.vars.example` only)
+- [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
+- [ ] SECURITY.md has the threat model, each fix and the test that proves it, and the tests pass
+- [ ] Tenant isolation: SECURITY.md covers cross-tenant attacks (guessed IDs, injected company names, shared caches), each with a passing test
+- [ ] It works in claude.ai or Claude Desktop
+- [ ] It works in ChatGPT (developer mode)
+- [ ] Tagged and pushed: `git tag step-16-done && git push origin step-16-done`
+- [ ] Submitted in the form: fork URL, tag `step-16-done`, live server URL, and screenshots of a refused request (wrong token or another user's data) and of the injection test passing, plus the server still working in **Claude** and **ChatGPT**
+
+## References
+
+- [MCP security best practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices)
+- [OWASP: Prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+
+---
+
+← [Step 15: Events](../step-15-events/) · [Roadmap](../README.md#roadmap) · [Step 17: Testing, Evals and Observability](../step-17-testing-and-observability/) →

@@ -1,0 +1,230 @@
+# AGENTS.md
+
+Guidance for AI coding agents (Claude Code, Codex, Cursor and others) working in this repository. Read it before making changes. Where it conflicts with a direct instruction from a maintainer, the maintainer wins.
+
+## What this repo is
+
+**Build and Sell MCP Apps: Hands-On CCDV-F Prep** (repo `learn-mcp`) is a hands-on course that teaches developers to build **remote MCP servers** in small, incremental steps. It is a companion to [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/) by Panaversity.
+
+- **Teaching principle: learn by building.** This repo teaches a hands-on way of learning. The book gives the concepts, and the repo is where learners practise them. Every step must end with something the learner builds, deploys and tests themselves in Claude (and ChatGPT). Don't add steps or sections that are only reading or explanation; link the book for theory and keep the step focused on building.
+- **North star:** *Generative UI + MCP*. Apps are built around user intent rather than navigation. The model decides which interface to show at runtime, and the MCP server supplies the tools, data, skills and governance behind it.
+- **Why it exists:** this repo is hands-on preparation for the CCDV-F exam (Claude Certified Developer: Foundations) and its Panaversity mirror, PCDV-F, and for monetizing these skills in the international market. It is part of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) in the book. The book teaches two products, MCP Apps and self-improving AI Workers, and **this repo covers MCP Apps only**, so keep AI Worker topics out. Learners should come away able to build MCP servers and apps for paying international clients, as FDEs or for their own startups, and ready for CCDV-F. Favour realistic, client-ready examples over toy ones.
+- **Companion book:** this repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Each step's `## Learn first` section links the book lessons (URL pattern `https://agentfactory.panaversity.org/building-ai-workers/<chapter>/<lesson>/`). The book is updated continuously, so check that links still resolve when you edit a step, and keep the step and the book consistent.
+- **Book edition:** link only to the current (second) edition at `agentfactory.panaversity.org`. **Never use or link `agentfactory1.panaversity.org`**, which is the deprecated first edition, and never link a page that redirects there (old `/docs/...` paths do). Check that every book link loads directly before adding it.
+- **Book chapters:** the course draws only on **chapters 12 to 20** of the book. `Learn first` links must come from those chapters. Where they don't cover a technology (for example Durable Objects, Queues, Workflows or the Events extension), say so in a note and link the official docs instead. Links in the root README that aren't lessons (the PCAO-F appendix, the FDE plan, the certification roadmaps) may stay.
+- **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps with Claude Code in the **Code** tab of Claude Desktop. The course is standardized on Claude Desktop, so write instructions for it, and mention the `claude` CLI only as an optional fallback. Every change should make the course easier to follow, not just make the code work.
+- **Status:** every step is currently **under development**. Each step folder has a planning README, and the code is still to come.
+
+## Target clients
+
+- **Primary testing:** claude.ai and Claude Desktop.
+- **Must also work in:** ChatGPT (developer mode).
+- **Out of scope:** anything that needs a self-hosted chat front end, such as AG-UI, CopilotKit or A2UI renderers. Don't add these.
+
+To stay portable, **use only standard MCP and MCP Apps APIs** (`@modelcontextprotocol/ext-apps`). Don't use client-specific APIs (for example ChatGPT-only `window.openai` calls or Claude-only behaviour) unless a step explicitly teaches the difference, and even then keep a standard fallback.
+
+The Skills over MCP, Tasks and Events extensions stay in the roadmap even where client support is still rolling out. Don't remove those steps. Note the support status in the step instead.
+
+## Tech stack
+
+| Area | Choice |
+| --- | --- |
+| Language | TypeScript (strict mode) |
+| Development | Claude Code in Claude Desktop (Code tab) |
+| Hosting | Cloudflare Workers (deployed with Wrangler) |
+| MCP transport | Streamable HTTP at `/mcp` |
+| MCP server | Cloudflare's stateless `createMcpHandler` (`agents/mcp/server`) with MCP SDK v2, created once at module level. Never the deprecated `McpAgent` class |
+| Search by meaning | pgvector on Neon in the same tables and under the same row-level security, `bge-m3` embeddings on Workers AI (`@cf/baai/bge-m3`, 1,024 dimensions) via the `AI` binding, from step 8 on. No separate vector database |
+| Tenancy | Shared tables with row-level security by default, dedicated Neon databases for an enterprise tier, one tenant context per request (step 7) |
+| Auth | Better Auth (OAuth), from step 4 on, with the organization plugin for companies (tenants) and roles. Chosen because it supports single sign-on through its open-source `@better-auth/sso` plugin (OIDC and SAML), which enterprise clients expect |
+| Notes store | Cloudflare Workers KV, for the notes example in steps 2 to 4 |
+| Auth database | Cloudflare D1, used only for auth data |
+| Business database | Neon serverless Postgres, from step 5 on (Hyperdrive and row-level security from step 6) |
+| UI | MCP Apps widgets built with React, from step 9 on |
+| Per-user state | Cloudflare Durable Objects, from step 11 on |
+| Background work | Cloudflare Queues, from step 12 on |
+| Durable jobs | Cloudflare Workflows, from step 13 on (also the engine behind MCP Tasks in step 14) |
+| Evals | An automated eval script through the Claude API's MCP connector, from step 17 on, plus a manual pass in each client |
+| Payments | Stripe in test mode, step 20 |
+
+Don't introduce another language, host, auth library or database without a maintainer asking for it.
+
+## Repository layout
+
+```
+.
+├── AGENTS.md                 # this file
+├── README.md                 # course overview and roadmap
+├── SUBMITTING.md             # how students fork, tag and submit
+├── LICENSE                   # MIT
+├── .gitignore                # keeps node_modules, .wrangler and .dev.vars out of forks
+├── .claude/skills/           # vendored Anthropic mcp-server-dev skills (do not edit)
+├── assets/                  # README hero images: hero-light.png and hero-dark.png, rendered at 2x from assets/src/*.svg
+└── step-NN-<name>/           # one folder per step
+    └── README.md             # plan, Claude Code prompts, references
+```
+
+### Step folders
+
+- Name them `step-NN-<descriptive-name>`: a two-digit number plus a short kebab-case name (e.g. `step-01-hello-world`). Never rename an existing step folder without asking, because the README links and the book reference these paths.
+- The current steps are:
+  1. `step-01-hello-world`: minimal remote MCP server on Cloudflare
+  2. `step-02-tool-design`: designing good tools
+  3. `step-03-resources-and-prompts`: resources and prompts, the other two MCP primitives
+  4. `step-04-auth`: Better Auth + D1, with companies (tenants) and roles through the organization plugin
+  5. `step-05-relational-databases`: the server connects to Neon; relational design, SQL and 1NF to 3NF, with read-only schema tools
+  6. `step-06-neon-production`: production data tools: Hyperdrive, paginated and transactional tools, row-level security
+  7. `step-07-multi-tenancy`: multi-tenant architecture: isolation models, tenant context, shared and dedicated databases, tenant-scoped helpers, cross-tenant tests
+  8. `step-08-semantic-search-pgvector`: search by meaning with pgvector on Neon: passages, bge-m3 embeddings on Workers AI, tenant-scoped search that cites or abstains, a retrieval question set in CI
+  9. `step-09-generative-ui-mcp-apps`: React widgets via MCP Apps
+  10. `step-10-skills-over-mcp`: Skills over MCP
+  11. `step-11-durable-objects`: per-user state (draft orders, rate limits) with Durable Objects
+  12. `step-12-queues`: background bulk imports with Queues
+  13. `step-13-cloudflare-workflows`: durable jobs with Cloudflare Workflows
+  14. `step-14-tasks`: long-running work with Tasks, backed by the step 13 Workflow
+  15. `step-15-events`: Events
+  16. `step-16-security-hardening`: threat model and hardening (tokens, least privilege, injection, secrets, audit)
+  17. `step-17-testing-and-observability`: tests in the Workers runtime, evals, logs and traces
+  18. `step-18-deploy-and-test`: production deploy and cross-client testing
+  19. `step-19-generative-ui-dashboard`: intent-driven sales dashboard (generative UI)
+  20. `step-20-billing-and-distribution`: Stripe plans, usage limits, and directory listing
+  21. `step-21-capstone-mcp-app`: capstone, a complete client-ready MCP app built from a required core plus justified extras
+- **Every step builds on the remote MCP server.** Each step adds to the same deployed server and is tested through it in Claude and ChatGPT. No standalone exercises: database design, SQL, background jobs and everything else are learned by building them into the server and exposing them through its tools.
+- **Each step is self-contained and starts from a copy of the previous step's code.** Never import code across step folders. A learner must be able to `cd` into any step and run it on its own.
+- Each step has its own `package.json`, `wrangler` config, `tsconfig.json` and lockfile. There is no root workspace.
+- Keep the running example consistent: a notes server stored in Workers KV (steps 2 to 4, per-user from step 4) that grows into a sales-data server on Neon (step 5 onward) and ends in the generative UI dashboard (step 19). The step 21 capstone is a new product (Stockroom by default) built from a required core plus at least two extras the student justifies; keep its requirements table (with its Core or extra column) in sync when a step is added or removed. Never keep data in a Worker's memory between requests (book lesson 17.4).
+- Each step deploys as its own Worker named `learn-mcp-step-NN` (e.g. `learn-mcp-step-03`), so earlier steps stay live while they are graded.
+- **One Neon branch per step.** From step 5, each step uses its own Neon branch (`step-NN`), created from the previous step's branch by the copy prompt in steps 6 to 20, so a later migration never breaks an earlier step that is still being graded. The capstone (step 21) starts a new Neon project or branch.
+- Each step's first Claude Code prompt copies the previous step's code into the new folder, skipping the course's `README.md`, `NOTES.md`, `node_modules/`, `.wrangler/`, `dist/` and `.dev.vars`, and renames the Worker. Keep that prompt when editing a step.
+- Prompts must never ask Claude to write or edit a step's `README.md`. Learner write-ups go in `NOTES.md` in the step folder.
+
+## Multi-tenancy
+
+Multi-tenancy is a first-class theme of this course, because the servers learners build for clients serve many companies. Keep these rules in every step:
+
+- **Where the tenant comes from.** The company (`orgId`), user, role and tier are resolved once per request by step 7's tenant module. The company comes only from the verified token, chosen when the user connects; there is no switch-company tool. Membership and role are re-checked against the database on every request, so removal or demotion takes effect on the next call. No tool, resource or prompt ever takes a company or user ID as input.
+- **Data.** Every business row carries `org_id`. Shared-tier companies use shared tables with row-level security, set per transaction (step 6); enterprise companies may get a dedicated Neon database behind the tenant router (step 7). Tools never know which tier they use, and migrations run across every tenant database.
+- **Names.** KV keys, Durable Object names, cache entries and log fields start with the company (`org:<orgId>:...`), built with the tenant helpers.
+- **Background work.** Every queue message, Workflow run, task and event carries the tenant envelope (`orgId`, `userId`, `requestId`), and the handler re-checks it before touching data.
+- **Per-company config, sign-in and billing.** Settings and limits are per company (cached in KV), SSO providers are linked to a company's organization, and plans and usage are counted per company (step 20).
+- **Proof.** From step 7, every step keeps a cross-tenant test suite passing, and every step README from step 8 on has a `Tenant isolation:` item in its submission checklist. A cross-tenant leak fails a step outright (see the rubric in `SUBMITTING.md`).
+
+## Working in a step
+
+Run commands from inside the step folder, not the repo root. The steps will typically use:
+
+```bash
+cd step-NN-<name>
+npm install
+npm run dev          # local Worker (wrangler dev)
+npm test             # tests, once a step has them
+npm run deploy       # wrangler deploy
+```
+
+If a step's `package.json` defines different scripts, follow that file. When you create a step, provide `dev`, `test`, `deploy` and (from step 9) `build:widgets` scripts so the commands stay the same across steps.
+
+- **Local testing:** use the MCP Inspector against the local `/mcp` endpoint before deploying.
+- **Secrets:** use `wrangler secret put` and `.dev.vars` for local values. Never commit secrets, `.dev.vars`, connection strings or tokens. Commit a `.dev.vars.example` with placeholder values instead.
+- **Databases:** D1 migrations go through Wrangler. Neon schema changes go through migration files committed in the step. Never run destructive SQL against a shared database without asking.
+- **Deploying:** only deploy when asked. A deploy publishes a public URL.
+
+## Coding conventions
+
+- TypeScript in strict mode, ES modules, `async`/`await`. No `any` without a comment explaining why.
+- Validate every tool input with a schema (e.g. Zod), and keep input schemas tight: required fields, enums, length limits.
+- Treat tool names, descriptions and schemas as prompts. They are written for the model, so make them clear and specific.
+- Return structured content alongside a short text summary.
+- Set tool annotations correctly (`readOnlyHint`, `destructiveHint`, etc.).
+- Return clear, recoverable errors rather than throwing opaque ones.
+- Durable Objects, Queues and Workflows are part of the MCP server: define and bind them in the same Worker that serves `/mcp`, and drive them from MCP tools (and through Tasks from step 14). Never run long work inside a single tool call or keep state in memory. Pick the store or runtime by the job:
+  - **Workers KV**: small, read-mostly data that can be up to a minute stale (the notes in steps 2 to 4, config, caches).
+  - **D1**: auth data only.
+  - **Neon**: business records, the source of truth, with row-level security forced on every business table: `USING` and `WITH CHECK` on `current_setting('app.tenant_id', true)`, the company set per transaction with `set_config(..., $1, true)` through one helper, a connector role without `BYPASSRLS`, the company in every key, and Hyperdrive query caching off (book chapter 19).
+  - **pgvector** (step 8 on): passages and embeddings in Neon under the same policies. Search tools cite document and line, abstain below a threshold, and are measured by a retrieval question set in CI.
+  - **Durable Objects** (step 11 on): small per-key state that must be strongly consistent, such as drafts, rate limits, quotas, live sessions and subscriptions. Name each object with the tenant helper from the verified company and user IDs (`org:<orgId>:user:<userId>`), or from the company ID alone for company-wide state, never from tool input. Not a business database.
+  - **Queues** (step 12 on): many independent pieces of background work or fan-out. Delivery is at least once, so every consumer write must be idempotent, with a dead-letter queue for repeated failures.
+  - **Workflows** (step 13 on): one job with ordered steps, waits (`step.sleep`, `step.waitForEvent`), per-step retries and a status the model can check.
+- Scope every data access to the authenticated user and their company (from step 4 onward). Business rows in Neon carry an `org_id`, and row-level security enforces it per transaction from step 6.
+- Keep responses small enough for a model's context: paginate and summarize.
+- Widgets (step 9+) are React, bundled into self-contained `ui://` resources. Respect host theming and keep payloads small.
+- Prefer clarity over cleverness. This is teaching code, so a learner should be able to read every file. Add short comments that explain *why*, not *what*.
+- Keep dependencies minimal and pin versions in each step.
+
+## Bundled skills
+
+`.claude/skills/` contains Anthropic's `mcp-server-dev` skills, vendored unchanged under Apache 2.0:
+
+- `build-mcp-server`: the entry point for deployment model, tool design, auth and references.
+- `build-mcp-app`: MCP Apps widgets, iframe sandbox and payload budgeting.
+- `build-mcpb`: packaging local servers as bundles. This course mostly builds remote servers, so it is rarely needed.
+
+Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This course uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. To update them, follow `.claude/skills/README.md`.
+
+## Writing step READMEs
+
+Every step's `README.md` follows the same structure, so keep it:
+
+1. `# Step NN: <Title>`
+2. A status banner: `> 🚧 **Under development.** …` (remove it only when the step is finished and tested in Claude and ChatGPT)
+3. A one-paragraph summary
+4. An optional client-support note (for extensions still rolling out)
+5. `## Learn first` (book lessons to study before the step, each with a one-line reason, then an **Official docs** list of deep links to the Cloudflare, Neon, Better Auth and MCP pages the step needs, each with a one-line reason)
+6. `## Why this step matters`
+7. `## Why this technology in an MCP server: <technology>` (bullets: **What it is**, **Why an MCP server uses it**, **What it solves**, **Alternatives**)
+8. `## What you will learn` (bullets)
+9. `## What you will build`
+10. `## Key concepts` (bold term, then a one-sentence definition)
+11. `## Planned outline` (numbered)
+12. `## Prerequisites` (link the previous step and the main README)
+13. `## Build it with Claude Code` (numbered instructions, each followed by a copy-paste prompt in a ```` ```text ```` block)
+14. `## Testing targets`
+15. `## Submission checklist`
+16. `## References`
+17. Footer navigation: previous step · Roadmap · next step
+
+Style:
+- Write plain, friendly English for learners, in full sentences. Explain jargon the first time it appears.
+- Prompts are written as the learner would type them to Claude Code. They are specific and self-contained, and they ask Claude to plan or explain before writing big changes.
+- The first instruction in each step tells the learner to open the **repo root** folder in the Code tab of Claude Desktop (so the skills load) and to work inside the step folder. Don't give terminal-only keyboard shortcuts. Describe UI actions in Claude Desktop instead.
+- Link to official docs (modelcontextprotocol.io, developers.cloudflare.com, better-auth.com/docs, neon.com/docs) rather than copying them. Prefer deep links to the exact page, and check each one loads.
+- When a step's status changes, update both the banner in the step README and the **Status** column of the roadmap table in the root `README.md`.
+
+## Keeping things in sync
+
+When you add, rename or reorder a step, update all of these together:
+- the step folder name
+- the roadmap table in `README.md`
+- the previous/next links in the neighbouring step READMEs
+- the step list in this file
+- the step count badge in `assets/src/hero-light.svg` and `assets/src/hero-dark.svg`, then re-render both PNGs (2560×1280)
+- the milestones table and the CCDV-F skills map in `README.md`
+- the capstone requirements table in step 21
+
+## Students and submissions
+
+This repo is a student assignment. Students **fork** it, work in their fork, and submit through a form (see `SUBMITTING.md`).
+
+- **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
+- If you are helping a student in their fork, commit and push to *their fork's* `origin` only.
+- Each finished step is tagged `step-NN-done` (e.g. `step-01-done`) and pushed to the fork.
+- Students deploy to their own Cloudflare and Neon accounts. Never hard-code a maintainer's account IDs, URLs or secrets.
+- Students shouldn't edit course-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
+- Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.
+- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep the form link a clearly marked placeholder until the maintainer supplies it.
+
+## Git
+
+- Make small, focused commits with descriptive messages, e.g. `step-03: add Better Auth with D1`.
+- Don't commit build output, `node_modules/`, `.wrangler/`, `.dev.vars` or secrets.
+- Don't rewrite published history.
+
+## Useful references
+
+- MCP specification: https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
+- MCP extensions overview: https://modelcontextprotocol.io/extensions/overview
+- Extensions client support matrix: https://modelcontextprotocol.io/extensions/client-matrix
+- MCP Apps: https://modelcontextprotocol.io/extensions/apps/overview
+- MCP Apps SDK: https://github.com/modelcontextprotocol/ext-apps
+- Cloudflare MCP docs: https://developers.cloudflare.com/agents/model-context-protocol/
+- Better Auth: https://better-auth.com/docs
+- Neon: https://neon.com/docs
