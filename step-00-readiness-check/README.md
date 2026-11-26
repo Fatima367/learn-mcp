@@ -234,7 +234,7 @@ If projects aren't available on your account yet, take the same test in the **Co
 - [12.8, "Practice: permissions, and a plan"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#practice-permissions-and-a-plan). Plan mode and permission requests.
 - [16.1 From a prompt you repeat to a skill, "Can I start a skill myself?"](https://agentfactory.panaversity.org/building-ai-workers/skills-and-plugins/from-a-prompt-to-a-skill/#can-i-start-a-skill-myself). What a skill is, and the two ways it starts: the agent picks it, or you type its name.
 
-**Outside the book** (it doesn't show the Claude app's skill settings): Anthropic's [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude), for turning skills on and uploading your own under **Customize → Skills**.
+**Outside the book** (it doesn't show the redesigned projects or the Claude app's skill settings): Anthropic's [Projects redesigned](https://claude.com/resources/articles/projects-redesigned), for what a project, its coordinator and its threads are, and [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude), for turning skills on and uploading your own under **Customize → Skills**.
 
 ## Why this step matters
 
