@@ -4,6 +4,8 @@
 
 Clients' questions are often about their documents, not their tables: "can I give a 15% discount to a new customer?", "what's our returns rule for opened items?", "do we sell anything for cold storage?". Searching for the same words misses most of these, because people don't use the policy's exact words. In this step your MCP server searches by **meaning** with **pgvector**, the Postgres add-on for embeddings, inside the same Neon database, the same tables and the same row-level security as the rest of the business data. Every answer cites the document and line it came from, the search **abstains** when nothing is close enough, and a fixed question set measures retrieval so a change that makes it worse fails the build.
 
+> 🏬 **Stockroom's ask:** Customers keep asking questions their tables can't answer: discount rules, return policies, what the catalog says about cold storage. Stockroom wants answers from each customer's own documents, with the source cited, and an honest "not covered" when nothing fits.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -157,6 +159,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: passages and embeddings are under forced row-level security, and a test proves one company's search never returns another company's passage
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged and pushed: `git tag step-08-done && git push origin step-08-done`
 - [ ] Submitted in the form: fork URL, tag `step-08-done`, live server URL, and screenshots of a cited policy answer and an abstention in **Claude** and **ChatGPT**
 

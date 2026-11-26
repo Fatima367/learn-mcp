@@ -33,6 +33,15 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 - **Part of the FDE 2027 Master Plan.** It is one piece of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) covered in the book, which trains Forward Deployed Engineers (FDEs) and the next generation of AI startup founders.
 - **MCP Apps, one of the book's two products.** The book teaches you to build two kinds of products: **MCP Apps** and **AI Workers that improve themselves**. This bootcamp covers **MCP Apps**. Self-improving AI Workers get their own bootcamp, **Build and Sell Self Improving AI Workers: The CCDV-F Bootcamp Part II**, which is under development.
 
+## Your client: Stockroom
+
+Every step in this bootcamp is client work, so every step has a business reason. Your client is **Stockroom**, a fictional startup that sells AI-native back-office software to small distributors and retailers, and it has hired you as its Forward Deployed Engineer. Stockroom's customers are companies, each with its own staff and data, which is why everything you build serves many companies at once and keeps them apart.
+
+- **Steps 1 to 20** build Stockroom's first product, a sales assistant that its customers' staff use from Claude and ChatGPT. It starts as one tool, becomes account notes for sales reps, grows into each customer's sales data on Neon, and ends as an intent-driven sales dashboard that Stockroom charges for.
+- **Step 21**, the capstone, builds Stockroom's next product, an inventory and purchasing app, from a brief instead of ready-made prompts. You may bring a client of your own instead.
+
+Each step's README opens with **🏬 Stockroom's ask**: what the client needs from that step, and why. Read it first, because it is the reason behind every decision in the step.
+
 ## Tech stack
 
 | Area | Choice |
@@ -56,7 +65,7 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (current LTS) and npm
+- [Node.js](https://nodejs.org/) 24 or later (an LTS release) and npm
 - [Claude Desktop](https://claude.com/download), signed in with a Claude plan that includes Claude Code. You'll work in its **Code** tab.
 - A [Cloudflare](https://dash.cloudflare.com/sign-up) account
 - A [Neon](https://neon.com/) account
@@ -123,8 +132,11 @@ They live in [`.claude/skills/`](.claude/skills/). Type `/` in the Code tab's pr
 
 Each step lives in its own numbered directory and builds on the one before it. Every step is currently **under development**: each folder has a README with the planned content, and the code is coming soon.
 
+Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and Claude Code). If you pass its seven tests, you test out and go straight to step 1.
+
 | Step | Directory | Topic | Status |
 | --- | --- | --- | --- |
+| 0 | [`step-00-readiness-check/`](step-00-readiness-check/) | Are you ready? Readiness check: seven short tests, with book sections for any you don't pass. Not graded | 🚧 Under development |
 | 1 | [`step-01-hello-world/`](step-01-hello-world/) | Hello world: a minimal remote MCP server on Cloudflare | 🚧 Under development |
 | 2 | [`step-02-tool-design/`](step-02-tool-design/) | Designing good tools | 🚧 Under development |
 | 3 | [`step-03-resources-and-prompts/`](step-03-resources-and-prompts/) | Resources and prompts: the other two MCP primitives, and when to use each instead of a tool | 🚧 Under development |
@@ -149,7 +161,7 @@ Each step lives in its own numbered directory and builds on the one before it. E
 
 ### Milestones and pacing
 
-The 21 steps fall into six milestones. Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
+The 21 steps fall into six milestones, after the step 00 readiness check (under an hour if you test out, two to four hours if you need some of its reading). Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
 
 | Milestone | Steps | Estimated time | What you can do at the end |
 | --- | --- | --- | --- |
@@ -200,6 +212,7 @@ Every step is built with Claude Code in Claude Desktop. Each step's README has a
 2. Start in plan mode and let Claude propose a plan before writing code.
 3. Paste the prompts in order, and review what Claude proposes before approving it.
 4. Deploy and test in Claude and ChatGPT at the end of each step.
+5. At the end of each milestone, record a short **project defence**: a walkthrough of your own code and one tenant-isolation decision, in your own words (see [SUBMITTING.md](SUBMITTING.md#10-defend-your-project)).
 
 Each step's code lives in its own folder and starts from a copy of the previous step.
 

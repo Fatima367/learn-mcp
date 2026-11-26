@@ -4,6 +4,8 @@
 
 Protect the server so that only signed-in users can use it, and so that every tool call knows *who* is calling. We use OAuth with Better Auth, and store users and sessions in Cloudflare D1. We chose Better Auth partly because it supports single sign-on (SSO) through its open-source `@better-auth/sso` plugin, so a client's staff can later sign in with the company account they already have. Every user also belongs to a company (a *tenant*) with a role, because the servers you build for clients serve whole teams, and from here on every step keeps each company's data apart.
 
+> 🏬 **Stockroom's ask:** Stockroom sells to companies, not individuals. Each customer company's staff must sign in and see only their own notes, admins need more rights than members, and Stockroom's bigger prospects already ask whether their staff can sign in with their company accounts (SSO).
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -160,6 +162,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged and pushed: `git tag step-04-done && git push origin step-04-done`
 - [ ] Submitted in the form: fork URL, tag `step-04-done`, live server URL, and screenshots of signing in and using your own notes in **Claude** and **ChatGPT**
 

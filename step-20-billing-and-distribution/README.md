@@ -4,6 +4,8 @@
 
 Turn the server into something you can sell. You add plans and payment with Stripe, check every tool call against the company's plan and usage limits on the server, and prepare the server for listing in Claude's Connectors Directory and in ChatGPT's app directory: the review checklist, privacy policy, screenshots and test account a reviewer needs.
 
+> 🏬 **Stockroom's ask:** Stockroom needs revenue: a plan for each customer company, usage limits that protect its costs, and listings in Claude's and ChatGPT's directories so new customers can find it.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

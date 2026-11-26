@@ -4,6 +4,8 @@
 
 Tools are only one of the three things an MCP server can offer. **Resources** are data with a fixed address (a URI) that the host app can read and attach to the conversation, and **prompts** are ready-made message templates a person picks, often from a slash menu. In this step your notes server publishes each note as a resource and offers one prompt, "summarize my notes", so you learn when a feature should be a tool, a resource or a prompt. Prompts are still part of the MCP spec, but few servers use them today, and MCP's maintainers say they have mostly fallen out of use. So this step keeps them small, and step 10 shows the modern way to ship reusable know-how: skills served over MCP. Resources matter more than ever, because widgets (`ui://`) and skills (`skill://`) are both built on them.
 
+> 🏬 **Stockroom's ask:** Reps want to attach an account's notes to a chat, and managers want one ready-made way to ask for a summary of the week's notes. That is a resource and a prompt, not another tool.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

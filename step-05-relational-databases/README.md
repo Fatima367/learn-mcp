@@ -4,6 +4,8 @@
 
 Give your remote MCP server a real business database, and learn to design one well while you do it. The server connects to Neon Postgres, its migrations create a sales schema that you take from a messy spreadsheet through the first three normal forms (1NF, 2NF and 3NF), and new read-only tools let Claude and ChatGPT explore the schema, answer business questions from it and show why normalization matters. Auth stays in D1, and the KV notes tools from steps 2 to 4 are replaced by sales data.
 
+> 🏬 **Stockroom's ask:** Notes aren't enough. Stockroom's customers want to ask about their sales ("who bought the most last month?"), and their history arrives as a messy spreadsheet. You design a proper sales database in Neon that the model can answer from.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

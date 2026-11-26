@@ -4,6 +4,8 @@
 
 Take the server to production on Cloudflare and verify it properly across all target clients: separate environments, a custom domain, secrets per environment, a CI pipeline that runs the step 17 tests and gates each deploy, safe releases with rollbacks, and a cross-client test plan.
 
+> 🏬 **Stockroom's ask:** Stockroom is going live with paying customers. It needs staging and production, safe releases with a rollback, and proof that everything works in each AI app its customers use.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -128,6 +130,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite passes against staging before each production release, and no tenant data or settings are shared between environments
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged and pushed: `git tag step-18-done && git push origin step-18-done`
 - [ ] Submitted in the form: fork URL, tag `step-18-done`, live server URL, and screenshots of your production server passing the cross-client test plan in **Claude** and **ChatGPT**
 

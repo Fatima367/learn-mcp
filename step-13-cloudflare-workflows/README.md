@@ -4,6 +4,8 @@
 
 Some jobs take minutes, run in several stages, wait for a person, or must survive a crash. Your MCP server handles them with Cloudflare Workflows: the Workflow is defined and bound inside the same Worker that serves `/mcp`, and runs each job as a series of durable steps: each finished step is saved, a failed step is retried, and the job picks up where it left off. An MCP tool starts the job and returns a run ID straight away, and a second tool lets the model check on it. This uses plain tools, so it works in Claude and ChatGPT today, and step 14 puts the standard MCP Tasks extension on top of it.
 
+> 🏬 **Stockroom's ask:** Year-end sales reports take minutes to build and wait for a manager's approval before they are published. Stockroom wants these jobs to survive crashes and let the model check on them.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

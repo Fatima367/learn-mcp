@@ -4,6 +4,8 @@
 
 Learn to design tools that models use correctly. That means clear names and descriptions, tight input schemas, structured outputs, sensible granularity, and annotations that tell the host which tools are safe.
 
+> 🏬 **Stockroom's ask:** Stockroom's first feature is account notes for its customers' sales reps ("called Ali at Karachi Foods, wants a price list on Friday"). Before any of it is real data, Stockroom wants notes tools the model calls correctly every time, because a wrong call in front of a customer's staff costs trust.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

@@ -4,6 +4,8 @@
 
 Ship *know-how* along with tools. Skills over MCP lets a server provide packaged instructions (skills) that teach the model how to use the server's tools well for specific tasks. Because the skills live on the server, you update them whenever you update the tools, and users install nothing. And because your server already knows who is calling and which company they belong to, it can do something a plugin can't: serve a shared playbook to everyone *and* a skill built for each company.
 
+> 🏬 **Stockroom's ask:** Every Stockroom customer sells a little differently. Stockroom wants one shared sales-review playbook for everyone, plus each customer's own targets, terms and sign-off rules, served only to that customer.
+
 > **Note:** Skills over MCP (`io.modelcontextprotocol/skills`) is a Beta extension. Anthropic announced public beta support in Claude and Claude Code on November 24, 2026: on by default for Pro, Max and Ultra plans, enabled by an admin on Team plans, with Enterprise to follow. ChatGPT has partial support. Check the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix) for the latest status.
 
 ## Learn first
@@ -140,6 +142,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the shared skill holds no company's data and uses only company-scoped tools, each company's playbook is listed and served only to that company (tested through `skills/list`, `skills/get` and `resources/read`), and per-company results are never cached as public
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged and pushed: `git tag step-10-done && git push origin step-10-done`
 - [ ] Submitted in the form: fork URL, tag `step-10-done`, live server URL, and screenshots of the monthly-sales-review skill and a company playbook in use (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
 

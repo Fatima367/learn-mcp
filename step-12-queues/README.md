@@ -4,6 +4,8 @@
 
 Some work is too big or too slow for one tool call but splits into many small, independent pieces: importing thousands of orders, sending notifications, recalculating summaries. Your MCP server hands that work to Cloudflare Queues. A tool puts messages on a queue and answers straight away, and the same Worker that serves `/mcp` consumes the messages in batches in the background, with retries and a dead-letter queue for messages that keep failing.
 
+> 🏬 **Stockroom's ask:** New customers arrive with years of orders in a CSV file. Stockroom wants imports that run in the background, retry what fails and report bad rows, while the chat keeps answering.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

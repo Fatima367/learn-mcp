@@ -4,6 +4,8 @@
 
 Almost every server you build for a client, and every product you sell, serves many companies from one deployment. Each company (a *tenant*) has its own people, settings and data, and no tenant may ever see another's. Steps 4 to 6 gave every user a company, put an `org_id` on every row and turned on row-level security. This step makes multi-tenancy the architecture of the whole server: you choose an isolation model for each kind of customer, carry one tenant context through every tool call, give each company its own settings and sign-in, build tenant-scoped helpers that every later step reuses for keys, Durable Objects, queue messages, Workflow runs, tasks and events, and prove isolation with a cross-tenant test suite.
 
+> 🏬 **Stockroom's ask:** Stockroom is signing many small distributors on a shared plan and one large retailer that insists on its own database and its own sign-in. One deployment must serve them all, and a single leak between them would end Stockroom's business.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

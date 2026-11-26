@@ -4,6 +4,8 @@
 
 Give the server a face. Tools return interactive React widgets (tables, charts, forms) that render inside the chat in Claude and ChatGPT, and the model picks which widget to show based on what the user asked.
 
+> 🏬 **Stockroom's ask:** Customers' staff find long text tables hard to read in a chat. Stockroom wants real screens (an orders table, a sales chart, an order form) that appear in Claude and ChatGPT when someone asks.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

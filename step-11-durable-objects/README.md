@@ -4,6 +4,8 @@
 
 Some state can't wait a minute to be consistent and doesn't belong in the business database: a draft order a user builds over several tool calls, or a count of how many times they called a write tool this minute. Your MCP server keeps that kind of state in Cloudflare Durable Objects. A Durable Object is one named object (for example, one per user) with its own storage, and every request for that name reaches the same object, so reads and writes are strongly consistent. The objects are defined and bound inside the same Worker that serves `/mcp`, and the server's tools call them.
 
+> 🏬 **Stockroom's ask:** Reps build an order over several messages, and one customer's script once hammered the write tools. Stockroom wants a draft order that survives between messages and an exact per-user rate limit.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

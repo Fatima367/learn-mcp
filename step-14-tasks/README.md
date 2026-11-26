@@ -4,6 +4,8 @@
 
 Handle work that takes longer than a single request, such as reports, imports and batch jobs, using the MCP Tasks extension so the client can start, track and retrieve results later. The work itself keeps running on the Cloudflare Workflow you built in step 13, and Tasks becomes the standard MCP face for it.
 
+> 🏬 **Stockroom's ask:** Stockroom wants its long jobs to appear as standard MCP tasks, so Claude can track progress and fetch the result without Stockroom's own status tools.
+
 > **Note:** Tasks (`io.modelcontextprotocol/tasks`) is a Beta extension on its way into the core spec. Anthropic announced on November 24, 2026 that Tasks is generally available in Claude and Claude Code for Pro, Max and Ultra plans, and still rolling out to Team and Enterprise. Check the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix) for ChatGPT and other clients, and keep the step 13 tools as the fallback.
 
 ## Learn first

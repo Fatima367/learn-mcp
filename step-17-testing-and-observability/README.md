@@ -4,6 +4,8 @@
 
 Prove the server works, keep proving it on every change, and see what it does once real users arrive. You add automated tests that run the Worker the way Cloudflare does, integration tests that call the server over MCP, an **eval set** that checks the model picks the right tool and widget for realistic requests in Claude and ChatGPT, and structured logs, traces and metrics on Cloudflare.
 
+> 🏬 **Stockroom's ask:** Stockroom ships changes every week and can't afford a reworded tool description that silently breaks a customer's workflow. It wants tests, evals and logs that catch it first.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

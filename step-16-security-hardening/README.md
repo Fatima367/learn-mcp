@@ -4,6 +4,8 @@
 
 Your server now holds business data, acts for signed-in users, runs background jobs and shows screens in the chat, which makes it worth attacking. This step reviews and hardens the whole server against the threats specific to MCP: prompt injection through tool results and widget text, tokens meant for another server, over-powerful tools, unvalidated input, leaked secrets and data that should not leave. You finish with a written threat model and tests that prove each fix.
 
+> 🏬 **Stockroom's ask:** A large retailer's security team sends Stockroom a questionnaire before it will connect anything. Stockroom needs a threat model and proof that each risk is handled.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

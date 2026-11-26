@@ -4,6 +4,8 @@
 
 Put the bootcamp's north star to work on the sales server. A user asks in plain language, for example "show me last quarter's sales forecast", and the model chooses and fills the right widget with live Neon data, in both Claude and ChatGPT.
 
+> 🏬 **Stockroom's ask:** Stockroom's customers' managers don't want to learn a dashboard. They want to ask "how did we do last quarter?" and get the right screen. This is the feature Stockroom will sell on.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

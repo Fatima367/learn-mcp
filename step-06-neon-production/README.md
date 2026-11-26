@@ -4,6 +4,8 @@
 
 Your server already reads a well-designed schema from Neon. Now make its data access ready for real clients: fast pooled connections through Cloudflare Hyperdrive, a Neon branch per environment, list tools that page and summarize, a write tool that validates and runs in a transaction, and row-level security so the database itself keeps each company's rows apart.
 
+> 🏬 **Stockroom's ask:** Stockroom's first paying customers are coming on. Their staff will page through thousands of orders and record new ones, and they must never see another customer's rows, even if one of your queries has a bug.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:

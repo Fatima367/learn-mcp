@@ -4,6 +4,8 @@
 
 Let the server tell the client when something happens, such as a new order or a crossed threshold, using the MCP Events extension.
 
+> 🏬 **Stockroom's ask:** Managers want to hear when something happens (a new order, a monthly target crossed) instead of asking every hour. Stockroom wants events that the AI apps its customers use can react to.
+
 > **Note:** Events (`io.modelcontextprotocol/events`) is a Beta extension with three ways to deliver an event: the client polls, the server pushes, or the server calls a webhook. MCP's maintainers say they don't yet know which will win, so plan for all three. As of November 2026 the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix) lists no Events support in Claude yet and webhook-only support in ChatGPT. Check it before you test, and keep the `list_recent_events` fallback.
 
 ## Learn first
@@ -124,6 +126,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: events and subscriptions never cross companies, and the test for it passes
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged and pushed: `git tag step-15-done && git push origin step-15-done`
 - [ ] Submitted in the form: fork URL, tag `step-15-done`, live server URL, and screenshots of an event being received (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
 

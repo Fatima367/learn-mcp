@@ -47,7 +47,8 @@ To avoid merge conflicts when you sync:
 
 ## 4. Do the work in each step folder
 
-- Work through the steps in order, starting with [`step-01-hello-world/`](step-01-hello-world/).
+- Start with the readiness check in [`step-00-readiness-check/`](step-00-readiness-check/). It isn't graded, but it tells you which book lessons to read before you build.
+- Then work through the steps in order, starting with [`step-01-hello-world/`](step-01-hello-world/).
 - Follow the **Build it with Claude Code** section in each step's README, working in the **Code** tab of Claude Desktop.
 - All your code for a step goes inside that step's folder. Each step starts from a copy of your previous step's code.
 - Commit often, with clear messages:
@@ -109,6 +110,7 @@ For each step, the form asks for:
 | Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
 | Screenshot: Claude | The step's tool or widget working in claude.ai or Claude Desktop |
 | Screenshot: ChatGPT | The same thing working in ChatGPT |
+| Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
@@ -125,9 +127,26 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 | Security and tenant isolation | 2 | No secrets in git, inputs validated, every data access scoped to the signed-in user and their company (from step 4), and from step 7 the cross-tenant suite passes and the step's tenant-isolation checklist item is met |
 | NOTES.md | 1 | A short explanation, in your own words, of what you built, the choices you made and how to run it |
 
+**Project defence (steps 4, 8, 10, 15, 18 and 21):** these steps end a milestone, and each needs a recorded defence (section 10) as well as the points above. The defence is pass or fail. A step that needs one doesn't pass without it, however many points it scores, and it doesn't pass if the defence shows you can't explain your own code. A failed defence can be re-recorded once.
+
 **Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
 
-**Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1).
+**Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
+
+## 10. Defend your project
+
+Claude Code writes much of your code, so the bootcamp checks that you understand what it wrote. At the end of each milestone (steps 4, 8, 10, 15, 18 and the step 21 capstone) you record a short **project defence**: a screen recording, with your voice, of you walking through your own code. It is the same conversation a client or an interviewer will have with you.
+
+**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Link it in the form with the step.
+
+Cover these four things, in your own words:
+
+1. **It works.** Show the step running in Claude or ChatGPT, in under a minute.
+2. **One tool, end to end.** Open the code at your tag and follow one tool call from its input schema through auth and tenant context to the data it reads or writes, and back to what the model sees.
+3. **One tenant-isolation decision.** Pick one decision that keeps one company's data away from another's, and explain where the company comes from (never from tool input), what stops another company's data from coming back, and which test proves it. In step 4, this is how a user's company is chosen and how it scopes their notes' keys.
+4. **One change you made.** Something Claude proposed that you changed, refused or fixed, and why.
+
+Talk, don't read: a script written by an AI and read aloud doesn't count as a defence. The grader may also ask any student for a short live defence on a call, at random or when the code and the recording don't match.
 
 ## Getting help
 
