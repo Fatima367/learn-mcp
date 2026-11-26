@@ -13,8 +13,9 @@ Guidance for AI coding agents (Claude Code, Codex, Cursor and others) working in
 - **Companion book:** this bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Each step's `## Learn first` section links the book lessons (URL pattern `https://agentfactory.panaversity.org/building-ai-workers/<chapter>/<lesson>/`). The book is updated continuously, so check that links still resolve when you edit a step, and keep the step and the book consistent.
 - **Book edition:** link only to the current (second) edition at `agentfactory.panaversity.org`. **Never use or link `agentfactory1.panaversity.org`**, which is the deprecated first edition, and never link a page that redirects there (old `/docs/...` paths do). Check that every book link loads directly before adding it.
 - **Book chapters:** the bootcamp draws only on **chapters 12 to 20** of the book. `Learn first` links must come from those chapters. Where they don't cover a technology (for example Durable Objects, Queues, Workflows or the Events extension), say so in a note and link the official docs instead. Links in the root README that aren't lessons (the PCAO-F appendix, the FDE plan, the certification roadmaps) may stay.
-- **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps with Claude Code in the **Code** tab of Claude Desktop. The bootcamp is standardized on Claude Desktop, so write instructions for it, and mention the `claude` CLI only as an optional fallback. Every change should make the bootcamp easier to follow, not just make the code work.
+- **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps in a Claude project (see **How learners work** below). Write instructions for that workflow, and mention the **Code** tab of Claude Desktop, and the `claude` CLI, only as fallbacks. Every change should make the bootcamp easier to follow, not just make the code work.
 - **Status:** every step is currently **under development**. Each step folder has a planning README, and the code is still to come.
+- **How learners work (workflow standard):** local first, with a human in the loop. Learners clone their fork locally with GitHub Desktop, create a Claude project, add the local folder and their GitHub fork to it, and work in the project's threads by default. Claude edits files and runs commands locally, and is told never to commit or push. The learner reviews, commits, tags and pushes in GitHub Desktop, and opens any pull request in GitHub Desktop or on github.com, only inside their own fork. For long-running work while their computer is off, they start a cloud session on their GitHub fork and review its branch themselves. The root README's "How we work" section is the learner-facing version; keep the two in sync.
 
 ## Target clients
 
@@ -32,7 +33,8 @@ The Skills over MCP, Tasks and Events extensions stay in the roadmap even where 
 | --- | --- |
 | Language | TypeScript (strict mode) |
 | TypeScript tooling | TypeScript 7 for type-checking only (`noEmit`), while Wrangler bundles the code with esbuild. Types come from `wrangler types` (a `typecheck` script runs `wrangler types && tsc`), with `@types/node` installed and the tsconfig using `moduleResolution: "bundler"` and `isolatedModules`. Each step sets `compatibility_date` to the day it is created, and adds no `nodejs_compat` flag, because Node.js compatibility is on by default from 2026-08-04 |
-| Development | Claude Code in Claude Desktop (Code tab) |
+| Development | Claude in a Claude project (threads) on the learner's local clone; the Code tab of Claude Desktop as a fallback |
+| Git and GitHub | GitHub Desktop for the learner's own Git work (clone, diff, commit, tag, push, sync). Claude may read git status and diffs, but never commits or pushes |
 | Hosting | Cloudflare Workers (deployed with Wrangler) |
 | MCP transport | Streamable HTTP at `/mcp` |
 | MCP server | Cloudflare's stateless `createMcpHandler` (`agents/mcp/server`) with MCP SDK v2, created once at module level. Never the deprecated `McpAgent` class |
@@ -56,6 +58,7 @@ Don't introduce another language, host, auth library or database without a maint
 ```
 .
 ├── AGENTS.md                 # this file
+├── CLAUDE.md                 # imports AGENTS.md, because Claude project threads read CLAUDE.md
 ├── README.md                 # bootcamp overview and roadmap
 ├── SUBMITTING.md             # how students fork, tag and submit
 ├── LICENSE                   # MIT
@@ -70,7 +73,7 @@ Don't introduce another language, host, auth library or database without a maint
 
 - Name them `step-NN-<descriptive-name>`: a two-digit number plus a short kebab-case name (e.g. `step-01-hello-world`). Never rename an existing step folder without asking, because the README links and the book reference these paths.
 - The current steps are:
-  0. `step-00-readiness-check` (titled "Step 00: Are You Ready? Readiness Check"): a short self-check (Git and GitHub, terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets, Claude Code in Claude Desktop) with a test per skill, so learners can test out. Not graded and not counted in the "21 steps"; it ends with the learner's fork set up and a `NOTES.md` of results, and it points to book lessons (chapters 12 to 20) and official docs rather than teaching the skills itself. Keep it short and don't grow it into a module
+  0. `step-00-readiness-check` (titled "Step 00: Are You Ready? Readiness Check"): a short self-check (Git and GitHub, terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets, working with Claude in a Claude project) with a test per skill, so learners can test out. Not graded and not counted in the "21 steps"; it ends with the learner's fork set up and a `NOTES.md` of results, and it points to book lessons (chapters 12 to 20) and official docs rather than teaching the skills itself. Keep it short and don't grow it into a module
   1. `step-01-hello-world`: minimal remote MCP server on Cloudflare
   2. `step-02-tool-design`: designing good tools
   3. `step-03-resources-and-prompts`: resources and prompts, the other two MCP primitives
@@ -196,7 +199,8 @@ Step 00 (the readiness check) is the one exception to this structure: it has the
 Style:
 - Write plain, friendly English for learners, in full sentences. Explain jargon the first time it appears.
 - Prompts are written as the learner would type them to Claude Code. They are specific and self-contained, and they ask Claude to plan or explain before writing big changes.
-- The first instruction in each step tells the learner to open the **repo root** folder in the Code tab of Claude Desktop (so the skills load) and to work inside the step folder. Don't give terminal-only keyboard shortcuts. Describe UI actions in Claude Desktop instead.
+- The first instruction in each step tells the learner to start a new thread for the step in their bootcamp's Claude project and to work inside the step folder. Don't give terminal-only keyboard shortcuts. Describe UI actions in the Claude app instead, generically where the projects UI may still change.
+- **Tooling standard for Git:** learners do routine Git work (clone, read a diff, commit, tag, push, sync) in GitHub Desktop, beside Claude Code in Claude Desktop. Write those instructions as GitHub Desktop actions (for example, tag with **History**, right-click the commit, **Create Tag…**, then **Push origin**), with git commands at most as a collapsed command-line fallback. Prompts never ask Claude to commit or push; they end with the learner reviewing and committing in GitHub Desktop.
 - Link to official docs (modelcontextprotocol.io, developers.cloudflare.com, better-auth.com/docs, neon.com/docs) rather than copying them. Prefer deep links to the exact page, and check each one loads.
 - When a step's status changes, update both the banner in the step README and the **Status** column of the roadmap table in the root `README.md`.
 
@@ -216,7 +220,7 @@ When you add, rename or reorder a step, update all of these together:
 This repo is a student assignment. Students **fork** it, work in their fork, and submit through a form (see `SUBMITTING.md`).
 
 - **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
-- If you are helping a student in their fork, commit and push to *their fork's* `origin` only.
+- If you are helping a student in their fork, don't commit or push: they review, commit and push in GitHub Desktop. Only if they explicitly ask you to, push to *their fork's* `origin`, never anywhere else.
 - Each finished step is tagged `step-NN-done` (e.g. `step-01-done`) and pushed to the fork.
 - Students deploy to their own Cloudflare and Neon accounts. Never hard-code a maintainer's account IDs, URLs or secrets.
 - Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.

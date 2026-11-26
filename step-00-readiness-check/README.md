@@ -2,27 +2,34 @@
 
 > 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and it will be refined as the bootcamp is tested with learners.
 
-Before you build anything, check that you have the seven skills every later step assumes: Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, keeping secrets safe, and Claude Code in the Code tab of Claude Desktop. This is a self-check, not a module. Each skill has a short test. If you pass a test, skip its reading. If you don't, it sends you to the exact sections of [The AI Agent Factory](https://agentfactory.panaversity.org/) that teach it, and to an outside reference only where the book doesn't cover the topic. Study them, then take the test again. You finish by setting up your fork and recording your results, so even this step ends with something you did, not just something you read.
+Before you build anything, check that you have the seven skills every later step assumes: Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, keeping secrets safe, and working with Claude in a Claude project. This is a self-check, not a module. Each skill has a short test. If you pass a test, skip its reading. If you don't, it sends you to the exact sections of [The AI Agent Factory](https://agentfactory.panaversity.org/) that teach it, and to an outside reference only where the book doesn't cover the topic. Study them, then take the test again. You finish by setting up your fork and recording your results, so even this step ends with something you did, not just something you read.
 
 > 🏬 **Stockroom's ask:** Stockroom, the client you work for in this bootcamp (see [Your client: Stockroom](../README.md#your-client-stockroom)), gives every new engineer a day to set up and prove they can work in its repo before handing over the first ticket. This step is that day.
 
 ## Test out
 
-You don't need to be fluent in any of these. Claude Code writes most of the code. You need to **read** what it writes, **check** it, and **notice** when something is wrong.
+You don't need to be fluent in any of these. Claude writes most of the code. You need to **read** what it writes, **check** it, and **notice** when something is wrong.
 
-**Take the tests in this order.** Start with [Build it with Claude Code](#build-it-with-claude-code), instructions 1 and 2: doing them is most of the test for checks 1 (Git and GitHub), 2 (the terminal) and 7 (Claude Code). Next, take the tests for checks 2 to 6 below. Finish with build instruction 3, which records your results, commits, tags and pushes them, and so completes check 1.
+**Take the tests in this order.** Start with [Build it with Claude Code](#build-it-with-claude-code), instructions 1 and 2: doing them is most of the test for checks 1 (Git and GitHub), 2 (the terminal) and 7 (Claude projects). Next, take the tests for checks 2 to 6 below. Finish with build instructions 3 and 4: Claude Code records your results, and you commit, tag and push them in GitHub Desktop, which completes check 1.
 
-- **Pass all seven in about an hour?** Record them (build instruction 3) and go straight to [Step 01](../step-01-hello-world/).
-- **Stuck on one or two?** Study only the book sections listed for those checks. As a rough guide: Git and GitHub, the terminal, HTTP and JSON, secrets or Claude Code take one to two hours each; SQL takes two to three; reading TypeScript is the biggest, about six to ten hours across chapters 13 and 14 if you are new to code.
+- **Pass all seven in about an hour?** Record them (build instructions 3 and 4) and go straight to [Step 01](../step-01-hello-world/).
+- **Stuck on one or two?** Study only the book sections listed for those checks. As a rough guide: Git and GitHub, the terminal, HTTP and JSON, secrets or Claude projects take one to two hours each; SQL takes two to three; reading TypeScript is the biggest, about six to ten hours across chapters 13 and 14 if you are new to code.
 - **Stuck on most of them?** Work through chapters 12 to 15 of [The AI Agent Factory](https://agentfactory.panaversity.org/) first, and plan on two to three weeks of part-time study. Every later step will go faster for it.
 
 ## The seven checks
 
 ### 1. Git and GitHub
 
-**You're ready if you can** fork a repo, clone your fork, commit a change, push it, add a tag, and read a diff before you accept it.
+**You're ready if you can** use [GitHub Desktop](https://desktop.github.com/download/) to fork a repo, clone your fork, read a diff before you accept it, commit a change, add a tag and push them. This bootcamp uses GitHub Desktop for your own Git work, beside Claude. Claude never commits or pushes here: that is your job, so a person reads every change before it reaches GitHub (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)).
 
-**Test.** Fork this repo and clone your fork (build instructions 1 and 2). In build instruction 3, Claude Code shows you the diff of your `NOTES.md` before it commits: say in one sentence what changed. Then it pushes the commit and a tag, `step-00-done`. You pass if you can find both on your fork's GitHub page (the commit in the commit history, the tag under **Tags**).
+**Test.** Fork this repo and clone your fork in GitHub Desktop (build instruction 1). After Claude writes your `NOTES.md` (build instruction 3), do the rest yourself in GitHub Desktop (build instruction 4):
+
+1. In the **Changes** tab, read the diff of `NOTES.md` and say in one sentence what changed.
+2. Commit it to `main` with the summary `step-00: readiness check`.
+3. In the **History** tab, right-click that commit, choose **Create Tag…**, and name it `step-00-done`.
+4. Click **Push origin**, which sends the commit and the tag to your fork.
+
+You pass if you can find both on your fork's GitHub page: the commit in the commit history, and the tag under **Tags**.
 
 **If not, study these book sections, then take the test again:**
 
@@ -31,13 +38,15 @@ You don't need to be fluent in any of these. Claude Code writes most of the code
 - [15.1, "Which commands need a pause?"](https://agentfactory.panaversity.org/building-ai-workers/code-review/git-through-the-agent/#which-commands-need-a-pause). Which git commands to approve with care, such as push.
 - [15.2 GitHub and the pull request, "Where does a team keep the good copy?"](https://agentfactory.panaversity.org/building-ai-workers/code-review/github-and-the-pull-request/#where-does-a-team-keep-the-good-copy). Remotes, pushing, and what GitHub adds on top of git. (In this bootcamp you never open a pull request to the bootcamp repo.)
 
+**Outside the book** (it works with git through the agent, not GitHub Desktop): [GitHub Desktop: Cloning and forking repositories](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop), [Committing and reviewing changes](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop) and [Managing tags](https://docs.github.com/en/desktop/managing-commits/managing-tags-in-github-desktop).
+
 ### 2. The terminal
 
 **You're ready if you can** open a terminal, move into a folder, run a command, and read its output and errors. You know what an environment variable is.
 
-**Test.** Open a terminal (Terminal on macOS, PowerShell on Windows) and move into your fork's folder with `cd`. Then:
+**Test.** Open a terminal (Terminal on macOS, PowerShell on Windows) and move into your fork's folder with `cd`. (In GitHub Desktop, **Repository → Open in Terminal**, or **Open in Command Prompt** on Windows, opens one already in that folder, but try `cd` yourself first.) Then:
 
-1. Run `node --version`, `npm --version`, `git --version` and `npx wrangler --version`. Each should print a version number, and Node.js must be **version 24 or later**. The first time, `npx` asks to download Wrangler (`Ok to proceed? (y)`): that is normal, so answer `y`. If a command fails, read the error and say what is missing.
+1. Run `node --version`, `npm --version`, `git --version` and `npx wrangler --version`. Each should print a version number (Claude uses `git` to read your changes, so install Git even though you use GitHub Desktop), and Node.js must be **version 24 or later**. The first time, `npx` asks to download Wrangler (`Ok to proceed? (y)`): that is normal, so answer `y`. If a command fails, read the error and say what is missing.
 2. Set an environment variable and read it back: `export STOCKROOM_ENV=dev` then `echo $STOCKROOM_ENV` on macOS or Linux, or `$env:STOCKROOM_ENV = "dev"` then `echo $env:STOCKROOM_ENV` in PowerShell. You should see `dev`. Then open a new terminal window and run the `echo` again. Say why it now prints nothing.
 
 **If not, study these book sections, then take the test again:**
@@ -112,7 +121,7 @@ Chapters 13 and 14 teach TypeScript and Python side by side. Follow the TypeScri
 
 **You're ready if you can** name the parts of an HTTP request and response (method, URL, headers, status code, body), read a JSON body, and explain what an `Authorization: Bearer` header is for.
 
-**Test.** Run `curl -i https://api.github.com/repos/panaversity/learn-mcp` in a terminal (or ask Claude Code to run it). On Windows, type `curl.exe` instead of `curl`, because in Windows PowerShell `curl` runs a different command. Point out the status code, the `content-type` header, and the value of `"default_branch"` in the JSON body. Then say what status code you would expect if the repo didn't exist.
+**Test.** Run `curl -i https://api.github.com/repos/panaversity/learn-mcp` in a terminal (or ask Claude to run it). On Windows, type `curl.exe` instead of `curl`, because in Windows PowerShell `curl` runs a different command. Point out the status code, the `content-type` header, and the value of `"default_branch"` in the JSON body. Then say what status code you would expect if the repo didn't exist.
 
 <details>
 <summary>Check your answers</summary>
@@ -187,19 +196,30 @@ Locally from `.dev.vars` (ignored by git; commit `.dev.vars.example` with placeh
 
 **Outside the book** (it covers making new keys after a leak, in F0 and chapter 18, but not cleaning a key out of a public repo's history): [GitHub: Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
-### 7. Claude Code in the Code tab of Claude Desktop
+### 7. Working with Claude in a Claude project
 
-**You're ready if you can** open a folder in the **Code** tab, switch to plan mode, read a plan before approving it, approve or refuse a permission request, and use a skill.
+**You're ready if you can** set up a Claude project with your local folder and your GitHub fork, start a thread in it, read a plan before approving it, approve or refuse a permission request, keep Claude from committing, and use a skill.
 
-**Test.** Build instruction 2 below. You pass if Claude proposes a plan before acting, you approve or refuse each command it asks to run, and you start the `build-mcp-server` skill yourself: type `/` in the prompt box, pick `build-mcp-server`, and ask it which deployment model fits a server that Claude and ChatGPT reach over the internet. It should answer (a remote server over HTTP) without editing any files.
+**Test.** Build instruction 2 below. You pass if:
+
+- your project has your local `learn-mcp` folder, your GitHub fork, and instructions that tell Claude never to commit or push;
+- in a new thread, Claude proposes a plan before acting, and you approve or refuse each command it asks to run;
+- you start the `build-mcp-server` skill yourself (type `/` in the prompt box and pick it, or ask Claude to use it) and ask which deployment model fits a server that Claude and ChatGPT reach over the internet. It should answer (a remote server over HTTP) without editing any files;
+- at the end, GitHub Desktop shows no commit that you didn't make yourself.
+
+If projects aren't available on your account yet, take the same test in the **Code** tab of Claude Desktop, with your `learn-mcp` folder open and the same "never commit" rule in your first message.
 
 **If not, study these book sections, then take the test again:**
 
 - [12.1 From a chat to a coding agent](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/from-chat-to-coding-agent/). What changes when the AI can run commands and edit files.
 - [12.3 Permissions, and plan before you act, "How do I read a plan?"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/permissions-and-plan/#how-do-i-read-a-plan). Plan mode, and what to check before you approve.
-- [12.8 How today's tools realize it, "Practice: the workspace"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#practice-the-workspace). Opening a folder in the Code tab of Claude Desktop (follow the Claude Code part).
-- [12.8, "Practice: permissions, and a plan"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#practice-permissions-and-a-plan). Plan mode and permission requests in the Code tab.
+- [12.6 Many sessions at once, "Which kind of helper do I use?"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/many-sessions/#which-kind-of-helper-do-i-use). What a thread is, and how it differs from a subagent or a side chat.
+- [12.8 How today's tools realize it, "The details, tool by tool"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#the-details-tool-by-tool). Claude projects and their threads, and what a thread loads (`CLAUDE.md`, but not the repo's skills). Read the Claude Code part.
+- [12.8, "Practice: the workspace"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#practice-the-workspace). Opening a folder in the Code tab of Claude Desktop, the fallback (follow the Claude Code part).
+- [12.8, "Practice: permissions, and a plan"](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#practice-permissions-and-a-plan). Plan mode and permission requests.
 - [16.1 From a prompt you repeat to a skill, "Can I start a skill myself?"](https://agentfactory.panaversity.org/building-ai-workers/skills-and-plugins/from-a-prompt-to-a-skill/#can-i-start-a-skill-myself). What a skill is, and the two ways it starts: the agent picks it, or you type its name.
+
+**Outside the book** (it doesn't show the Claude app's skill settings): Anthropic's [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude), for turning skills on and uploading your own under **Customize → Skills**.
 
 ## Why this step matters
 
@@ -207,40 +227,42 @@ Every later step assumes these seven skills and moves fast. A learner who can't 
 
 ## What you will build
 
-Your fork of the bootcamp, open in the Code tab of Claude Desktop with the bundled skills loaded, and a `NOTES.md` in `step-00-readiness-check/` that records your tool versions and, for each of the seven checks, whether you passed it or what you read. Committed and pushed to your fork.
+Your fork of the bootcamp, cloned locally and added, with your GitHub fork, to a Claude project that tells Claude never to commit, and a `NOTES.md` in `step-00-readiness-check/` that records your tool versions and, for each of the seven checks, whether you passed it or what you read. Committed, tagged `step-00-done` and pushed to your fork with GitHub Desktop.
 
 ## Prerequisites
 
-- The tools and accounts listed in the [main README](../README.md#prerequisites). You'll create the Cloudflare and Neon accounts in steps 1 and 5 if you don't have them yet.
+- The tools and accounts listed in the [main README](../README.md#prerequisites), including [GitHub Desktop](https://desktop.github.com/download/), signed in to your GitHub account. You'll create the Cloudflare and Neon accounts in steps 1 and 5 if you don't have them yet.
 
 ## Build it with Claude Code
 
-**1. Fork and clone the repo.** Follow [Set up: fork, clone and sync](../README.md#set-up-fork-clone-and-sync) in the main README. That is check 1 (Git and GitHub) in practice.
+**1. Fork and clone the repo with GitHub Desktop.** Follow [Set up: fork, clone and sync](../README.md#set-up-fork-clone-and-sync) in the main README. That is the first part of check 1 (Git and GitHub).
 
-**2. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then switch to plan mode.** That is check 7 in practice.
+**2. Set up your Claude project and start a thread.** Follow [How we work](../README.md#how-we-work-local-first-human-in-the-loop), steps 2 and 3: create a project, add your local `learn-mcp` folder and your GitHub fork, write the project instructions (including "never commit or push"), and add the bootcamp's skills to your Claude account: install Anthropic's `mcp-server-dev` plugin under **Customize → Plugins**, or upload the skills under **Customize → Skills** (step-by-step in [Built-in skills](../README.md#built-in-skills)). Then start a thread and paste this prompt. That is check 7 in practice.
 
 ```text
-I'm starting the CCDV-F Bootcamp. Before we change anything, check my setup: run node --version, npm --version, git --version and npx wrangler --version, and tell me if any of them is missing, or if Node.js is older than version 24. Then show me which skills are loaded from .claude/skills/ and what each one is for, in one sentence each. Don't edit any files yet.
+I'm starting the CCDV-F Bootcamp. Before we change anything, check my setup: run node --version, npm --version, git --version and npx wrangler --version, and tell me if any of them is missing, or if Node.js is older than version 24. Then tell me which of the bootcamp's skills (build-mcp-server, build-mcp-app, build-mcpb) you can use here and what each one is for, in one sentence each. Don't edit any files yet, and never commit or push.
 ```
 
-> 💡 **Tip: keep your computer awake.** Claude Code runs on your own computer, so a long run or a scheduled task stops if it goes to sleep. In Claude Desktop, open **Settings → Desktop app** and turn on **Keep computer awake**. Two limits: closing a laptop's lid still puts it to sleep, and cloud sessions don't need this setting.
+> 💡 **Tip: keep your computer awake.** When Claude works in your local folder, it works on your computer, so a long run or a scheduled task stops if the computer goes to sleep. In Claude Desktop, open **Settings → Desktop app** and turn on **Keep computer awake**. Two limits: closing a laptop's lid still puts it to sleep, and cloud sessions don't need this setting. For a job that must keep running with the lid closed, use a cloud session on your GitHub fork instead ([How we work](../README.md#how-we-work-local-first-human-in-the-loop), step 5).
 
 **3. Record your results.**
 
 ```text
-Create step-00-readiness-check/NOTES.md (leave README.md alone, because it belongs to the bootcamp). Add my tool versions from the last check, then a table with one row for each of the seven checks in step-00-readiness-check/README.md, with columns "Check", "Passed?" and "What I read". I'll tell you my answers for each row. Show me the diff before you commit, then commit it with the message "step-00: readiness check", tag that commit step-00-done, and push the commit and the tag to my fork's origin.
+Create step-00-readiness-check/NOTES.md (leave README.md alone, because it belongs to the bootcamp). Add my tool versions from the last check, then a table with one row for each of the seven checks in step-00-readiness-check/README.md, with columns "Check", "Passed?" and "What I read". I'll tell you my answers for each row. Don't commit or push: I'll do that myself in GitHub Desktop.
 ```
 
-**4. Close the gaps.** For any check you didn't pass, read the linked lessons, try its test again, and update the row in `NOTES.md`. Then go to Step 01.
+**4. Commit, tag and push in GitHub Desktop.** Do this yourself, not through Claude: it is the rest of check 1. In the **Changes** tab, read the diff of `NOTES.md`, then commit to `main` with the summary `step-00: readiness check`. In the **History** tab, right-click the commit and choose **Create Tag…** to add `step-00-done`. Then click **Push origin**.
+
+**5. Close the gaps.** For any check you didn't pass, read the linked lessons, try its test again, update the row in `NOTES.md`, and commit and push the change in GitHub Desktop. Then go to Step 01.
 
 ## Submission checklist
 
 Step 00 isn't graded and has no form entry. Before you start Step 01, make sure that:
 
-- [ ] Your fork exists, is cloned, and is open in the Code tab of Claude Desktop
+- [ ] Your fork exists, is cloned with GitHub Desktop, and is added, with your GitHub fork, to a Claude project whose instructions say never to commit or push
 - [ ] `node` (version 24 or later), `npm`, `git` and `npx wrangler` all print a version
 - [ ] You passed all seven checks, or read the lessons for the ones you didn't and passed them on a second try
-- [ ] `step-00-readiness-check/NOTES.md` is committed and pushed to your fork, with the tag `step-00-done`
+- [ ] `step-00-readiness-check/NOTES.md` is committed in GitHub Desktop and pushed to your fork, with the tag `step-00-done`
 
 ## References
 

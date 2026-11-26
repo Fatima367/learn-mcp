@@ -79,11 +79,11 @@ A server with a single `greet` tool (and a second `get_time` tool to show more t
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then switch to plan mode so Claude plans before it writes code. All code for this step goes in `step-01-hello-world/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, and make sure Claude plans before it writes code (the prompt asks it to). All code for this step goes in `step-01-hello-world/`.**
 
 ```text
 Use the build-mcp-server skill. I want a minimal remote MCP server in TypeScript, deployed to Cloudflare Workers over Streamable HTTP, with no auth yet. Serve /mcp with Cloudflare's stateless createMcpHandler (from agents/mcp/server) and MCP SDK v2, following the handler API docs linked in this step, not the deprecated McpAgent class. Create the handler once at module level, and give it a factory that builds a new McpServer and registers the tools on every request. Nothing about a request may be kept in module scope. Ask me any questions you need, then propose a plan and a file layout before writing code.
@@ -125,10 +125,10 @@ Walk me through logging in to Wrangler and deploying this Worker. After deployin
 Give me step-by-step instructions to add this server as a custom connector in claude.ai, Claude Desktop and ChatGPT developer mode, and a test prompt for each that should make the model call `greet`.
 ```
 
-**8. Commit when everything works.**
+**8. Review, then commit in GitHub Desktop.**
 
 ```text
-Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the bootcamp), and commit with a descriptive message.
+Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the bootcamp). Don't commit: I'll read the diff and commit it myself in GitHub Desktop.
 ```
 
 ## Testing targets
@@ -146,7 +146,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-01-done && git push origin step-01-done`
+- [ ] Tagged `step-01-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-01-done`, live server URL, and screenshots of the model calling `greet` in **Claude** and **ChatGPT**
 
 ## References

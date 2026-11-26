@@ -14,7 +14,12 @@ Your fork is public, like the original. Never commit secrets (see [Keep secrets 
 
 ## 2. Clone your fork
 
-Clone **your fork**, not the original:
+Clone **your fork**, not the original. This bootcamp uses [GitHub Desktop](https://desktop.github.com/download/) for your own Git work, beside Claude, and Claude never commits or pushes for you.
+
+In [GitHub Desktop](https://desktop.github.com/download/), signed in to your GitHub account, choose **File → Clone Repository**, pick `<your-username>/learn-mcp` on the **GitHub.com** tab, choose where to save it, and click **Clone**. When GitHub Desktop asks how you plan to use this fork, choose **For my own purposes**, because you never send work back to the bootcamp repo.
+
+<details>
+<summary>Prefer the command line?</summary>
 
 ```bash
 git clone https://github.com/<your-username>/learn-mcp.git
@@ -23,15 +28,19 @@ git remote add upstream https://github.com/panaversity/learn-mcp.git
 git remote -v   # origin = your fork, upstream = the bootcamp repo
 ```
 
-Then open Claude Desktop, go to the **Code** tab, and choose your cloned `learn-mcp` folder (the repo root) as the folder to work in.
+</details>
+
+Then set up your Claude project: add your cloned `learn-mcp` folder (the repo root) and your GitHub fork to it, and tell it never to commit or push. [How we work](README.md#how-we-work-local-first-human-in-the-loop) in the main README has the steps.
 
 ## 3. Keep your fork in sync
 
 New steps and fixes are added to the bootcamp repo over time. Pull them into your fork before starting each step.
 
-**On GitHub:** open your fork and click **Sync fork → Update branch**.
+1. **On GitHub:** open your fork and click **Sync fork → Update branch**.
+2. **In GitHub Desktop:** click **Fetch origin**, then **Pull origin**, to bring the update to your computer.
 
-**Or from the terminal:**
+<details>
+<summary>Prefer the command line?</summary>
 
 ```bash
 git checkout main
@@ -39,6 +48,8 @@ git fetch upstream
 git merge upstream/main
 git push origin main
 ```
+
+</details>
 
 To avoid merge conflicts when you sync:
 
@@ -49,15 +60,9 @@ To avoid merge conflicts when you sync:
 
 - Start with the readiness check in [`step-00-readiness-check/`](step-00-readiness-check/). It isn't graded, but it tells you which book lessons to read before you build.
 - Then work through the steps in order, starting with [`step-01-hello-world/`](step-01-hello-world/).
-- Follow the **Build it with Claude Code** section in each step's README, working in the **Code** tab of Claude Desktop.
+- Follow the **Build it with Claude Code** section in each step's README, working in a thread of your bootcamp's Claude project.
 - All your code for a step goes inside that step's folder. Each step starts from a copy of your previous step's code.
-- Commit often, with clear messages:
-
-```bash
-git add step-01-hello-world
-git commit -m "step-01: add greet and get_time tools"
-git push origin main
-```
+- Commit often, with clear messages. In GitHub Desktop, read the diff in the **Changes** tab, write a summary such as `step-01: add greet and get_time tools`, click **Commit to main**, then **Push origin**. Claude doesn't commit for you (your project's instructions tell it not to), so every commit is one you have read.
 
 ## 5. Deploy to your own accounts
 
@@ -71,21 +76,17 @@ Keep your server running until your step has been graded.
 
 ## 6. Tag each finished step
 
-When a step is finished, deployed and tested, tag the commit and push the tag:
+When a step is finished, deployed and tested, tag the commit and push the tag in GitHub Desktop:
 
-```bash
-git tag step-01-done
-git push origin step-01-done
-```
+1. Open the **History** tab, right-click the step's last commit, and choose **Create Tag…**.
+2. Name it `step-01-done` and click **Create Tag**.
+3. Click **Push origin**. It sends the tag to your fork with any unpushed commits.
+
+Check the tag appears under **Tags** on your fork's GitHub page.
 
 Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step is committed before you tag.
 
-Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix and submit that tag in the form:
-
-```bash
-git tag step-01-done-v2
-git push origin step-01-done-v2
-```
+Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, push it, and submit that tag in the form.
 
 ## 7. Keep secrets out of git
 
@@ -150,5 +151,5 @@ Talk, don't read: a script written by an AI and read aloud doesn't count as a de
 
 ## Getting help
 
-- Re-read the step's README and ask Claude (in the Code tab) to explain whatever is unclear.
+- Re-read the step's README and ask Claude (in a thread of your Claude project) to explain whatever is unclear.
 - Ask your instructor or classmates through the bootcamp's usual help channel. Don't use pull requests for questions.
