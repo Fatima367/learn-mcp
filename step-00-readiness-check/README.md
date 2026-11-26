@@ -6,15 +6,30 @@ Before you build anything, check that you have the seven skills every later step
 
 > 🏬 **Stockroom's ask:** Stockroom, the client you work for in this bootcamp (see [Your client: Stockroom](../README.md#your-client-stockroom)), gives every new engineer a day to set up and prove they can work in its repo before handing over the first ticket. This step is that day.
 
-## Test out
+## How it works
 
-You don't need to be fluent in any of these. Claude writes most of the code. You need to **read** what it writes, **check** it, and **notice** when something is wrong.
+You don't need to be fluent in any of these skills. Claude writes most of the code. You need to **read** what it writes, **check** it, and **notice** when something is wrong.
 
-**Take the tests in this order.** Start with [Build it with Claude Code](#build-it-with-claude-code), instructions 1 and 2: doing them is most of the test for checks 1 (Git and GitHub), 2 (the terminal) and 7 (Claude projects). Next, take the tests for checks 2 to 6 below. Finish with build instructions 3 and 4: Claude Code records your results, and you commit, tag and push them in GitHub Desktop, which completes check 1.
+Do these four things in order. If you already have the skills, it takes about an hour.
 
-- **Pass all seven in about an hour?** Record them (build instructions 3 and 4) and go straight to [Step 01](../step-01-hello-world/).
-- **Stuck on one or two?** Study only the book sections listed for those checks. As a rough guide: Git and GitHub, the terminal, HTTP and JSON, secrets or Claude projects take one to two hours each; SQL takes two to three; reading TypeScript is the biggest, about six to ten hours across chapters 13 and 14 if you are new to code.
-- **Stuck on most of them?** Work through chapters 12 to 15 of [The AI Agent Factory](https://agentfactory.panaversity.org/) first, and plan on two to three weeks of part-time study. Every later step will go faster for it.
+1. **Set up.** Fork and clone the repo, then set up your Claude project ([Build it with Claude Code](#build-it-with-claude-code), instructions 1 and 2).
+2. **Take the seven checks below**, one at a time. Each one says what it tests, gives a short test, and tells you how to know if you passed.
+3. **Save your results.** Claude writes them into `NOTES.md`, and you commit, tag and push in GitHub Desktop (instructions 3 and 4).
+4. **Close any gaps.** For each check you didn't pass, read the book sections listed under it, then take its test again.
+
+How long the reading takes if you don't pass a check:
+
+| Check | Book sections | Time |
+| --- | --- | --- |
+| [1. Git and GitHub](#1-git-and-github) | 15.1, 15.2 | 1 to 2 hours |
+| [2. The terminal](#2-the-terminal) | 12.2, 12.7, 13.1, 13.2 | 1 to 2 hours |
+| [3. Reading TypeScript](#3-reading-typescript) | 13.1, 13.3, 13.6, 14.2, 14.4, 14.5, 14.8, 14.9 | 6 to 10 hours |
+| [4. HTTP, JSON and APIs](#4-http-json-and-apis) | 14.7 | 1 to 2 hours |
+| [5. SQL basics](#5-sql-basics) | 19.2, 19.3 | 2 to 3 hours |
+| [6. Keeping secrets safe](#6-keeping-secrets-safe) | 14.7, 17.8, field guide F0, F1, F6 | 1 to 2 hours |
+| [7. Working with Claude in a Claude project](#7-working-with-claude-in-a-claude-project) | 12.1, 12.3, 12.6, 12.8, 16.1 | 1 to 2 hours |
+
+Didn't pass most of them? Work through chapters 12 to 15 of [The AI Agent Factory](https://agentfactory.panaversity.org/) first. Plan on two to three weeks of part-time study. Every later step will go faster for it.
 
 ## The seven checks
 

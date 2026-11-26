@@ -142,7 +142,7 @@ Then type `/` in a thread's prompt box: you should see `build-mcp-server`, `buil
 
 Each step lives in its own numbered directory and builds on the one before it. Every step is currently **under development**: each folder has a README with the planned content, and the code is coming soon.
 
-Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and Claude Code). If you pass its seven tests, you test out and go straight to step 1.
+Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and working with Claude in a Claude project). If you pass its seven checks, you go straight to step 1.
 
 | Step | Directory | Topic | Status |
 | --- | --- | --- | --- |
@@ -171,7 +171,7 @@ Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of th
 
 ### Milestones and pacing
 
-The 21 steps fall into six milestones, after the step 00 readiness check (under an hour if you test out, two to four hours if you need some of its reading). Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
+The 21 steps fall into six milestones, after the step 00 readiness check (about an hour if you pass every check; if you don't, its reading takes 1 to 10 hours per check, see its study-time table). Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
 
 | Milestone | Steps | Estimated time | What you can do at the end |
 | --- | --- | --- | --- |

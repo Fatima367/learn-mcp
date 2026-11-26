@@ -194,7 +194,7 @@ Every step's `README.md` follows the same structure, so keep it:
 17. `## References`
 18. Footer navigation: previous step · Roadmap · next step
 
-Step 00 (the readiness check) is the one exception to this structure: it has the banner, summary, Stockroom's ask, a test-out section, the seven checks (each with "You're ready if", a test and "If not, read"), then `## Why this step matters`, `## What you will build`, `## Prerequisites`, `## Build it with Claude Code`, `## Submission checklist`, `## References` and the footer.
+Step 00 (the readiness check) is the one exception to this structure: it has the banner, summary, Stockroom's ask, a `## How it works` section (the order of work and a study-time table), the seven checks (each with "You're ready if", a test and "If not, read"), then `## Why this step matters`, `## What you will build`, `## Prerequisites`, `## Build it with Claude Code`, `## Submission checklist`, `## References` and the footer.
 
 Style:
 - Write plain, friendly English for learners, in full sentences. Explain jargon the first time it appears.
