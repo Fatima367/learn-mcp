@@ -8,6 +8,9 @@
 
 Welcome, readers of [The AI Agent Factory](https://agentfactory.panaversity.org/)! If you have finished your study for [PCAO-F](https://agentfactory.panaversity.org/appendices/exams/associate-foundations/overview/) (Panaversity Certified Associate: Foundations), congratulations: you already know how to work with AI agents and manage the work they do. Now it's time to build. This bootcamp is your hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), Anthropic's developer exam, and for **PCDV-F** (Panaversity Certified Developer: Foundations), the Panaversity exam that mirrors it. Just as important, it teaches you to monetize these skills in the international market: building MCP apps for paying clients as a **Forward Deployed Engineer (FDE)** or for your own startup.
 
+> [!TIP]
+> **💰 On a budget?** Start with our student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**: which AI tools are free, what is worth paying for, and how to compare costs before you buy. See also [What it costs](#what-it-costs) for this bootcamp.
+
 MCP turns two! Anthropic released the Model Context Protocol in November 2024. What started as a way to connect AI apps to tools and data is now becoming the standard for how agents communicate and orchestrate work. MCP also standardizes interactive apps that render inside the chat, through the MCP Apps extension.
 
 MCP's second year was about agents. The [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28/changelog) made the protocol stateless, with no sessions, so a server runs behind any load balancer, and new features now arrive as optional extensions that clients adopt one at a time. On MCP's second birthday (November 24, 2026), Anthropic made Tasks and Elicitation generally available in Claude, put Skills over MCP into public beta, and announced file uploads. In this bootcamp we learn to build **remote MCP servers** that use these capabilities, one small, incremental step at a time.
@@ -69,7 +72,8 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 - **Anthropic API:** from step 17, the automated eval script calls the Claude API, which costs a little per run.
 - **Stripe:** test mode (step 20) is free.
 
-Want to keep your wider AI spending low? Read [Affordable Agentic AI Development](docs/affordable-agentic-ai.md), a student guide to free and low-cost options (Codex, OpenCode, direct model APIs and local models) and how to compare them before you pay.
+> [!TIP]
+> **Keep your AI costs low.** Read the student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**. It covers free and low-cost options (Codex, OpenCode, direct model APIs and local models) and how to compare them before you pay.
 
 ### Set up: fork, clone and sync
 
