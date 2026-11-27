@@ -65,7 +65,7 @@ Don't introduce another language, host, auth library or database without a maint
 ├── .gitignore                # keeps node_modules, .wrangler and .dev.vars out of forks
 ├── .claude/skills/           # vendored Anthropic mcp-server-dev skills (do not edit)
 ├── assets/                  # README hero images and the Agent Factory Stack diagrams (rendered at 2x from assets/src/*.svg), and step diagrams, all as light and dark PNGs
-├── docs/                     # student guides: agent-factory-stack.md, affordable-agentic-ai.md, costs-and-cleanup.md, ccdv-f-skills-map.md
+├── docs/                     # student guides: agent-factory-stack.md, why-typescript-and-workers.md, workers-vs-cloud-run.md, affordable-agentic-ai.md, costs-and-cleanup.md, ccdv-f-skills-map.md
 └── step-NN-<name>/           # one folder per step
     └── README.md             # what to build, Claude Code prompts, references (no solution code)
 ```

@@ -83,9 +83,11 @@ Each step's README opens with **🏬 Stockroom's ask**: what the client needs fr
 These choices form one stack, which we call **the Agent Factory Stack**: **TypeScript** as the language, **Cloudflare** as the infrastructure, **Better Auth** for identity, **Neon Postgres** as the system of record, with **pgvector** inside it for search by meaning, and **MCP** as the way AI clients reach your app. Its main advantage is architectural:
 
 - **Serverless-first.** Your server is a Cloudflare Worker that runs per request, and Neon runs Postgres the same way. There is no machine to size or keep running.
-- **Inexpensive to start.** Every step fits Cloudflare's and Neon's free plans, and the user's AI client pays for the model, so you can build and demo for a client before you pay for hosting (see [Costs and cleanup](docs/costs-and-cleanup.md)).
+- **Inexpensive to start.** Cloudflare's free plan needs no credit card, every step fits Cloudflare's and Neon's free plans, and the user's AI client pays for the model, so you can build and demo for a client before you pay for hosting (see [Costs and cleanup](docs/costs-and-cleanup.md)).
 - **Scales on demand.** The same code serves ten users or ten thousand. The database is the part you plan for, in steps 6 and 7.
 - **No servers to manage.** No virtual machines, patching or load balancers: `wrangler deploy` publishes your app, and Cloudflare and Neon run the infrastructure.
+
+Why TypeScript rather than Python, and Workers rather than containers? An MCP app is integration engineering, not machine learning: see [TypeScript and Workers by Default](docs/why-typescript-and-workers.md), and [Cloudflare Workers or Google Cloud Run?](docs/workers-vs-cloud-run.md) for the strongest alternative host.
 
 It is Panaversity's recommended default for MCP apps, not an industry standard. The idea behind it:
 
