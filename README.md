@@ -80,7 +80,14 @@ Each step's README opens with **🏬 Stockroom's ask**: what the client needs fr
 
 ### Why this stack
 
-These choices form one stack, which we call **the Agent Factory Stack**: **TypeScript** as the language, **Cloudflare** as the infrastructure, **Better Auth** for identity, **Neon Postgres** as the system of record, with **pgvector** inside it for search by meaning, and **MCP** as the way AI clients reach your app. It is serverless, cheap to start, and runs a multi-tenant app for paying clients with no servers for you to manage. It is Panaversity's recommended default for MCP apps, not an industry standard. The idea behind it:
+These choices form one stack, which we call **the Agent Factory Stack**: **TypeScript** as the language, **Cloudflare** as the infrastructure, **Better Auth** for identity, **Neon Postgres** as the system of record, with **pgvector** inside it for search by meaning, and **MCP** as the way AI clients reach your app. Its main advantage is architectural:
+
+- **Serverless-first.** Your server is a Cloudflare Worker that runs per request, and Neon runs Postgres the same way. There is no machine to size or keep running.
+- **Inexpensive to start.** Every step fits Cloudflare's and Neon's free plans, and the user's AI client pays for the model, so you can build and demo for a client before you pay for hosting (see [Costs and cleanup](docs/costs-and-cleanup.md)).
+- **Scales on demand.** The same code serves ten users or ten thousand. The database is the part you plan for, in steps 6 and 7.
+- **No servers to manage.** No virtual machines, patching or load balancers: `wrangler deploy` publishes your app, and Cloudflare and Neon run the infrastructure.
+
+It is Panaversity's recommended default for MCP apps, not an industry standard. The idea behind it:
 
 > **Build the business capabilities. Expose them through MCP. Let AI clients provide the intelligence. Keep business data in a reliable system of record.**
 

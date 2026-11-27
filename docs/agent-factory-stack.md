@@ -2,7 +2,18 @@
 
 Every step in this bootcamp uses the same small set of technologies. This guide explains why. It names the stack, shows how an MCP app differs from a traditional web app, maps each technology to the steps where you build with it, and is honest about the trade-offs.
 
-**Read this as a recommended default, not an industry standard.** There is no single standard stack for MCP apps yet. This is the stack Panaversity recommends for its Forward Deployed Engineers and teaches in [The AI Agent Factory](https://agentfactory.panaversity.org/), because it lets one person build, secure and run a multi-tenant MCP app for a paying client with no servers to manage. Once you understand why each piece is here, you will also know when a client's situation calls for something else.
+**Read this as a recommended default, not an industry standard.** There is no single standard stack for MCP apps yet. This is the stack Panaversity recommends for its Forward Deployed Engineers and teaches in [The AI Agent Factory](https://agentfactory.panaversity.org/), because it lets one person build, secure and run a multi-tenant MCP app for a paying client on serverless infrastructure: cheap to start, scaling on its own, with no servers to manage. Once you understand why each piece is here, you will also know when a client's situation calls for something else.
+
+## The architectural advantage: serverless-first
+
+The biggest reason for this stack is architectural. **It is serverless-first, inexpensive to start, scales on its own, and asks you to manage no traditional server infrastructure.** For an FDE or a small startup, that means you spend your time on the client's business capabilities, not on running machines.
+
+- **Serverless-first.** Your MCP server is a Cloudflare Worker: code that runs when a request arrives and stops when it is answered. Neon runs Postgres the same way. There is no machine sitting idle that you have to size, start or keep alive, and MCP's stateless 2026-07-28 spec fits this model, because any copy of your server can answer any call.
+- **Inexpensive to start.** Every step of this bootcamp fits the free plans of Cloudflare and Neon, Neon scales to zero when nobody is using it, and the user's AI client pays for the model. You can build, demo and win a first client before you pay for hosting. Costs begin when traffic grows (Workers Paid, a paid Neon plan) or when your own server calls models heavily; the [Costs and cleanup](costs-and-cleanup.md) guide lists every service and its limits, and step 20 teaches you to price those costs in.
+- **Scales on demand.** Workers start a fresh copy for each request, close to the user, so ten users and ten thousand use the same code and the same deploy. The part you still plan for is the database: connection limits, indexes and, for a big tenant, a dedicated Neon database (steps 6 and 7).
+- **No servers to manage.** No virtual machines, operating systems to patch, load balancers, container clusters or database servers to run. `wrangler deploy` publishes your app, and Cloudflare and Neon run the infrastructure underneath it.
+
+**What you still own.** Serverless removes the servers, not the responsibility. Your code, your schema, each company's isolation, your secrets, your security and your bill are still yours, and most of this bootcamp is about getting those right.
 
 ## The guiding idea
 
