@@ -35,6 +35,8 @@ A server that works on your laptop isn't done. This step covers what it takes to
 - **What it solves.** Releasing untested changes straight to clients, not knowing why a tool call failed, and client-specific bugs that only users discover.
 - **Alternatives.** Other CI/CD services, Cloudflare's own Git integration (Workers Builds), or deploying by hand from a laptop, which doesn't scale past one developer and one client.
 
+**In the Agent Factory Stack.** Before a production deploy, know which parts of the stack move with you and which tie you to Cloudflare. See [The honest trade-off: lock-in](../docs/agent-factory-stack.md#the-honest-trade-off-lock-in) in the stack guide.
+
 ## What you will learn
 
 - Set up separate dev, staging and production environments with Wrangler

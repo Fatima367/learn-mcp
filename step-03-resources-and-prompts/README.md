@@ -30,6 +30,8 @@ Putting everything behind tools works, but it isn't always the best design. Refe
 - **What it solves.** Tools that only fetch static data, long instructions users have to retype, and context the user wants to add on purpose rather than leaving it to the model.
 - **Alternatives.** A read-only tool instead of a resource (works everywhere, but the model decides when to use it), or a skill instead of a prompt (step 10), which is now the usual choice for reusable procedures. Client support for resources and prompts varies, so check how each client shows them.
 
+**In the Agent Factory Stack.** Resources and prompts complete the MCP layer through which AI clients reach your app. See [The stack at a glance](../docs/agent-factory-stack.md#the-stack-at-a-glance) in the stack guide.
+
 ## What you will learn
 
 - Explain the three MCP primitives and who controls each one

@@ -37,6 +37,8 @@ Almost every client server you build as an FDE has a database behind it, and a b
 - **What it solves.** A flat spreadsheet repeats facts, so the same customer can have two addresses and totals drift. Normalization removes those contradictions before a model ever reads the data.
 - **Alternatives.** D1 (SQLite) works for smaller data, and we keep it for sign-in. Supabase or another hosted Postgres works the same way. Document databases are weaker at the joins and totals business questions need.
 
+**In the Agent Factory Stack.** Neon Postgres becomes the stack's system of record here. See [Why these foundations](../docs/agent-factory-stack.md#why-these-foundations) in the stack guide.
+
 ## What you will learn
 
 - Explain tables, rows, primary keys and foreign keys, and how tables relate (one-to-many, many-to-many)

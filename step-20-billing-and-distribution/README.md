@@ -34,6 +34,8 @@ Skills only turn into income when someone pays. Most clients will pay you to bui
 - **What it solves.** Unpaid use that costs you money, users who can't find or trust your server, and rejected submissions because a privacy policy, test account or screenshots were missing.
 - **Alternatives.** Other payment providers such as Paddle or Lemon Squeezy, invoicing a client directly for a private server, or sharing a custom connector URL instead of a public listing.
 
+**In the Agent Factory Stack.** A connector-native app needs no model subscription of its own, which shapes what you charge for. See [From a traditional app to a connector-native app](../docs/agent-factory-stack.md#from-a-traditional-app-to-a-connector-native-app) in the stack guide.
+
 ## What you will learn
 
 - Design plans (for example free, pro and team) with usage limits that match your costs

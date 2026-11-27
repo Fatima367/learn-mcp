@@ -40,6 +40,8 @@ Clients rarely want a server for one person. A distributor wants one for every b
 - **What it solves.** Data leaks between customers, per-customer forks of the code, enterprise customers who need their own sign-in or their own database, and noisy neighbours that slow everyone down.
 - **Alternatives.** A separate deployment per customer (simple isolation, but every update ships many times and costs grow per customer), or a database per tenant for everyone (strong isolation, harder migrations and higher cost). Most products use shared tables by default and a dedicated database only for customers who pay or must comply.
 
+**In the Agent Factory Stack.** Tenant isolation spans every layer of the stack, from the verified token in Better Auth to row-level security in Neon. See [Where each technology appears in this bootcamp](../docs/agent-factory-stack.md#where-each-technology-appears-in-this-bootcamp) in the stack guide.
+
 ## What you will learn
 
 - Compare the three isolation models (shared schema with row-level security, schema per tenant, database or Neon project per tenant) on isolation, cost, migrations, noisy neighbours and compliance, and choose one per kind of customer

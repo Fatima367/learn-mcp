@@ -31,6 +31,8 @@ This is the bootcamp's north star, Generative UI + MCP: an app built around inte
 - **What it solves.** Fixed dashboards that never quite match the question, and one-widget-per-tool designs that can't combine views.
 - **Alternatives.** A fixed dashboard app, one fixed widget per tool (step 9), or letting the model generate its own HTML ("open screens" in book lesson 20.10), which is harder to keep safe.
 
+**In the Agent Factory Stack.** The dashboard is the connector-native idea in full: the model chooses the screen, and your server supplies the capabilities and data. See [From a traditional app to a connector-native app](../docs/agent-factory-stack.md#from-a-traditional-app-to-a-connector-native-app) in the stack guide.
+
 ## What you will learn
 
 - Design a widget library that the model can compose from

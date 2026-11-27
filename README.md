@@ -78,6 +78,20 @@ Each step's README opens with **🏬 Stockroom's ask**: what the client needs fr
 | Payments | [Stripe](https://docs.stripe.com/) in test mode (step 20) |
 | Target clients | claude.ai and Claude Desktop (primary testing), plus ChatGPT |
 
+### Why this stack
+
+These choices form one stack, which we call **the Agent Factory Stack**: **TypeScript** as the language, **Cloudflare** as the infrastructure, **Better Auth** for identity, **Neon Postgres** as the system of record, with **pgvector** inside it for search by meaning, and **MCP** as the way AI clients reach your app. It is serverless, cheap to start, and runs a multi-tenant app for paying clients with no servers for you to manage. It is Panaversity's recommended default for MCP apps, not an industry standard. The idea behind it:
+
+> **Build the business capabilities. Expose them through MCP. Let AI clients provide the intelligence. Keep business data in a reliable system of record.**
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagram-agent-factory-stack-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/diagram-agent-factory-stack-light.png">
+  <img src="assets/diagram-agent-factory-stack-light.png" alt="The Agent Factory Stack in five layers. Intelligence: Claude, ChatGPT or any MCP client runs the model. Protocol: MCP over Streamable HTTP at /mcp with OAuth sign-in, MCP Apps screens and Skills over MCP. Your app, in TypeScript on Cloudflare Workers: the MCP server (step 1), Better Auth (step 4), React widgets (step 9) and skills (step 10). Platform services added as needed: Workers KV (2), D1 (4), Hyperdrive (6), Workers AI (8), Durable Objects (11), Queues (12), Workflows (13). System of record: Neon Postgres with row-level security (steps 5 to 7) and pgvector for search by meaning in the same tables (step 8)." width="100%">
+</picture>
+
+Read **[The Agent Factory Stack](docs/agent-factory-stack.md)** for how an MCP app differs from a traditional web app, which Cloudflare service arrives in which step, why we use Better Auth rather than a second OAuth server and Hyperdrive in front of Neon, which libraries we leave out, and the honest trade-off: what ties you to Cloudflare and what moves with you.
+
 ## Getting started
 
 ### Prerequisites

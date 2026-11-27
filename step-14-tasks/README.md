@@ -39,6 +39,8 @@ Real business operations don't always finish in seconds. In step 13 the model ha
 - **What it solves.** Every server inventing its own start-and-check tools, and long calls that time out or block the conversation.
 - **Alternatives.** Custom status tools (kept as the fallback for clients without Tasks support) or progress notifications on a long-held request, which still times out.
 
+**In the Agent Factory Stack.** Tasks put an MCP protocol face on the step 13 Workflow, so one capability spans two layers of the stack. See [Cloudflare services, one at a time](../docs/agent-factory-stack.md#cloudflare-services-one-at-a-time) in the stack guide.
+
 ## What you will learn
 
 - Understand the task lifecycle: create, poll or notify, complete, retrieve the result

@@ -32,6 +32,8 @@ Real client work includes jobs that don't fit in one request: a year-end report,
 - **What it solves.** Jobs that restart from scratch after a failure, approvals with nowhere to wait, and progress nobody can see.
 - **Alternatives.** Chaining queue messages or building a state machine on Durable Object alarms by hand, or other engines such as Temporal and Inngest. This bootcamp standardizes on Workflows because they run inside the same Worker.
 
+**In the Agent Factory Stack.** Workflows are one of the Cloudflare services the stack adds only when a step needs them, and the guide is honest about the lock-in they bring. See [The honest trade-off: lock-in](../docs/agent-factory-stack.md#the-honest-trade-off-lock-in) in the stack guide.
+
 ## What you will learn
 
 - Explain durable execution: named steps whose results are saved, so a job survives crashes, retries and redeploys

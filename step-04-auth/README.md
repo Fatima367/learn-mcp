@@ -42,6 +42,8 @@ Real servers act on behalf of real users. Claude and ChatGPT both support OAuth 
 - **Why SSO matters for client work.** Enterprise clients usually require their staff to sign in with the company account their IT team manages, so access starts and ends with employment. Better Auth gives you that with an open-source plugin, inside your own Worker and database, instead of a paid identity service. SSO proves who the person is; your server still decides what they may do.
 - **Alternatives.** Hosted identity providers such as Auth0, Clerk, WorkOS or Stytch, or Cloudflare's own OAuth provider library for Workers. We use Better Auth because it supports SSO through an open-source plugin, runs inside your Worker, stores its data in your own database and is what the book teaches.
 
+**In the Agent Factory Stack.** Better Auth is the stack's identity foundation, and the guide explains why it is the one authorization server, rather than running Cloudflare's OAuth provider beside it. See [Two decisions this stack makes for you](../docs/agent-factory-stack.md#two-decisions-this-stack-makes-for-you) in the stack guide.
+
 ## What you will learn
 
 - Understand how MCP authorization works: the server as an OAuth resource server, discovery metadata, and tokens on every request

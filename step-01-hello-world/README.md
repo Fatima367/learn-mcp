@@ -39,6 +39,8 @@ Everything else in this bootcamp builds on a server that is reachable over the i
 - **What it solves.** A local (stdio) server only runs on one person's computer and can't be reached from claude.ai on the web or from ChatGPT. A remote server can, so it can serve paying clients.
 - **Alternatives.** Node.js on a container or VM (Fly.io, Render, Google Cloud Run), or serverless functions on Vercel or AWS Lambda. For tools that must touch a user's own files or apps, a local server packaged as an MCPB bundle. The book and this bootcamp standardize on Cloudflare.
 
+**In the Agent Factory Stack.** Workers and the stateless `createMcpHandler` are the compute layer of the stack, and this is where its TypeScript-on-Cloudflare foundation starts. See [Why these foundations](../docs/agent-factory-stack.md#why-these-foundations) in the stack guide.
+
 ## What you will learn
 
 - Explain what an MCP server is, and how a *remote* server (Streamable HTTP) differs from a *local* one (stdio)

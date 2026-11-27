@@ -34,6 +34,8 @@ A schema that works for one person testing is not yet safe for a client. Real us
 - **What it solves.** Slow or failing calls under load, oversized tool results that overflow the model's context (solved with pagination and summaries), half-finished writes (solved with transactions), and one missing `WHERE` clause leaking another user's orders (solved with RLS).
 - **Alternatives.** Neon's own connection pooler or its HTTP driver without Hyperdrive, and filtering only in application code without RLS, which works until the first bug.
 
+**In the Agent Factory Stack.** Hyperdrive with a standard Postgres driver is the stack's chosen way to reach Neon, and the guide compares it with Neon's serverless driver. See [Two decisions this stack makes for you](../docs/agent-factory-stack.md#two-decisions-this-stack-makes-for-you) in the stack guide.
+
 ## What you will learn
 
 - Connect through Cloudflare Hyperdrive, and explain why pooling matters for Workers

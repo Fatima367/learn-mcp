@@ -32,6 +32,8 @@ A server is only as good as the model's ability to use it. Poorly described or o
 - **What it solves.** Well-designed tools mean fewer wrong calls, fewer wasted tokens and safer confirmations, since annotations tell the host which tools change data. KV keeps the notes alive across requests and copies.
 - **Alternatives.** For storage: D1 or Postgres (more than a notes demo needs, and used for real data from step 5), or Durable Objects when data must be strongly consistent (step 11). There is no alternative to good tool design.
 
+**In the Agent Factory Stack.** Well-described tools are the business capabilities a connector-native app exposes in place of a website and a REST API, and Workers KV is the first Cloudflare service you add. See [From a traditional app to a connector-native app](../docs/agent-factory-stack.md#from-a-traditional-app-to-a-connector-native-app) in the stack guide.
+
 ## What you will learn
 
 - Write tool names and descriptions that help the model pick the right tool

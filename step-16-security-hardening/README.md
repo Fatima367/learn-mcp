@@ -38,6 +38,8 @@ A client will ask "is it safe?" before they connect your server to their busines
 - **What it solves.** Prompt injection that turns a read into a write, tokens accepted from the wrong issuer or for the wrong server, data from one user reaching another, secrets in logs or git, and abuse that runs up your costs.
 - **Alternatives.** None replace this work. Gateways, web application firewalls and Cloudflare's own protections help at the edge, and a security review by a specialist helps before a big client launch, but the server's own checks are what make it safe.
 
+**In the Agent Factory Stack.** Hardening covers every layer of the stack, and the guide shows which technology sits at each one. See [Where each technology appears in this bootcamp](../docs/agent-factory-stack.md#where-each-technology-appears-in-this-bootcamp) in the stack guide.
+
 ## What you will learn
 
 - Write a threat model for an MCP server: who can call it, what each tool can do, and what could go wrong

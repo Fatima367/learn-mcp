@@ -34,6 +34,8 @@ A model that answers a policy question from memory, or from the closest wrong ru
 - **What it solves.** Questions phrased in the user's words rather than the document's ("PO" for "purchase order"), answers no one can check, confident answers to questions the documents don't cover, and a separate vector database with its own copy of every company's data.
 - **Alternatives.** A dedicated vector database (another service, another copy of the data and another place to enforce tenancy), search by words only (misses meaning), or putting whole documents in the prompt (costly, and the citation points at nothing). The book keeps vectors in Postgres with pgvector, so one database and one set of rules covers both.
 
+**In the Agent Factory Stack.** pgvector is the stack's search by meaning, kept inside the system of record instead of a separate vector database such as Vectorize. See [Why these foundations](../docs/agent-factory-stack.md#why-these-foundations) in the stack guide.
+
 ## What you will learn
 
 - Explain passages, embeddings, dimensions, cosine distance and nearest-neighbour search, and predict what a search returns before you run it

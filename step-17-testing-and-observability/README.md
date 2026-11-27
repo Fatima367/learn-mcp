@@ -36,6 +36,8 @@ By now the server has many moving parts, and a change to one tool description ca
 - **What it solves.** Regressions shipped to clients, tools the model silently stops using after a description change, and bug reports you can't reproduce.
 - **Alternatives.** Jest or another test runner (Vitest is what Cloudflare supports for the Workers runtime), hosted eval tools, and monitoring services such as Sentry, Datadog or any OpenTelemetry backend.
 
+**In the Agent Factory Stack.** Vitest in the Workers runtime is the stack's test tool, and evals check the protocol layer from a real client's side. See [Where each technology appears in this bootcamp](../docs/agent-factory-stack.md#where-each-technology-appears-in-this-bootcamp) in the stack guide.
+
 ## What you will learn
 
 - Run unit tests in the Workers runtime with real bindings (KV, D1, Durable Objects, Queues)

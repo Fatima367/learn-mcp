@@ -38,6 +38,8 @@ Tools say *what* a model can do, and skills say *how* to do a job well. Serving 
 - **What it solves.** Long, procedural tool descriptions that bloat the model's context, and inconsistent results because each user prompts differently. Skills load only when needed (progressive disclosure). And because the server authenticates every caller, it can serve each company a skill tailored to it, such as its own targets and sign-off steps.
 - **Alternatives.** Putting the procedure in tool descriptions (costly in context), MCP prompts (templates the user picks), or asking users to install a skill in their own client separately.
 
+**In the Agent Factory Stack.** Skills over MCP is part of the stack's protocol layer, served from the same Worker. See [The stack at a glance](../docs/agent-factory-stack.md#the-stack-at-a-glance) in the stack guide.
+
 ## What you will learn
 
 - Understand what a skill is (instructions plus optional resources) and when the model loads one

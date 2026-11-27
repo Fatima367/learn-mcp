@@ -31,6 +31,8 @@ Text is a poor interface for data. MCP Apps is the open standard for interactive
 - **What it solves.** Users get screens they can read and act on without leaving the chat, and you ship one UI that works in both major clients instead of building a separate web app.
 - **Alternatives.** Client-specific APIs such as ChatGPT-only `window.openai` calls (we avoid them to stay portable), markdown tables or images in text replies, or a separate web app that users have to switch to.
 
+**In the Agent Factory Stack.** MCP Apps widgets are how a connector-native app shows screens without building a website. See [From a traditional app to a connector-native app](../docs/agent-factory-stack.md#from-a-traditional-app-to-a-connector-native-app) in the stack guide.
+
 ## What you will learn
 
 - Explain the MCP Apps model: UI resources, linking a tool to its UI, and the sandboxed iframe

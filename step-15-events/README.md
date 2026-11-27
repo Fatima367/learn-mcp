@@ -34,6 +34,8 @@ Up to now, the model only learns things when it asks. Events let the server push
 - **What it solves.** Polling (the model calling a tool again and again to see if anything changed) and missed changes.
 - **Alternatives.** Polling tools, webhooks to other systems, or notifications outside MCP such as email or Slack. Core MCP's list-changed notifications only cover changes to tool or resource lists, not business events.
 
+**In the Agent Factory Stack.** Events are part of the stack's protocol layer: open MCP standards that any client can adopt. See [The stack at a glance](../docs/agent-factory-stack.md#the-stack-at-a-glance) in the stack guide.
+
 ## What you will learn
 
 - Understand the Events extension and how clients subscribe

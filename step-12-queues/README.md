@@ -32,6 +32,8 @@ Clients often arrive with data to load: a spreadsheet of last year's orders, a p
 - **What it solves.** Timeouts and half-finished imports, lost work when something fails, and bursts that overwhelm Neon.
 - **Alternatives.** `ctx.waitUntil` for short follow-up work (no retries, limited time), Workflows when the job has ordered steps (step 13), or external queues such as Amazon SQS.
 
+**In the Agent Factory Stack.** Queues are one of the Cloudflare services the stack adds only when a step needs them. See [Cloudflare services, one at a time](../docs/agent-factory-stack.md#cloudflare-services-one-at-a-time) in the stack guide.
+
 ## What you will learn
 
 - Explain producers, consumers, batches and at-least-once delivery

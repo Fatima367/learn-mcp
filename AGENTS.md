@@ -51,7 +51,7 @@ The Skills over MCP, Tasks and Events extensions stay in the roadmap even where 
 | Evals | An automated eval script through the Claude API's MCP connector, from step 17 on, plus a manual pass in each client |
 | Payments | Stripe in test mode, step 20 |
 
-Don't introduce another language, host, auth library or database without a maintainer asking for it.
+Don't introduce another language, host, auth library or database without a maintainer asking for it. `docs/agent-factory-stack.md` explains this stack to learners (as "the Agent Factory Stack", a recommended default rather than an industry standard); keep its step mapping, and the step numbers in its diagrams (`assets/src/diagram-agent-factory-stack-*.svg`), in sync with this table and the steps.
 
 ## Repository layout
 
@@ -64,8 +64,8 @@ Don't introduce another language, host, auth library or database without a maint
 ├── LICENSE                   # MIT
 ├── .gitignore                # keeps node_modules, .wrangler and .dev.vars out of forks
 ├── .claude/skills/           # vendored Anthropic mcp-server-dev skills (do not edit)
-├── assets/                  # README hero images (rendered at 2x from assets/src/*.svg) and step diagrams, all as light and dark PNGs
-├── docs/                     # student guides: affordable-agentic-ai.md, costs-and-cleanup.md, ccdv-f-skills-map.md
+├── assets/                  # README hero images and the Agent Factory Stack diagrams (rendered at 2x from assets/src/*.svg), and step diagrams, all as light and dark PNGs
+├── docs/                     # student guides: agent-factory-stack.md, affordable-agentic-ai.md, costs-and-cleanup.md, ccdv-f-skills-map.md
 └── step-NN-<name>/           # one folder per step
     └── README.md             # what to build, Claude Code prompts, references (no solution code)
 ```
@@ -183,7 +183,7 @@ Every step's `README.md` follows the same structure, so keep it:
 4. An optional client-support note (for extensions still rolling out)
 5. `## Learn first` (book lessons to study before the step, each with a one-line reason, then an **Official docs** list of deep links to the Cloudflare, Neon, Better Auth and MCP pages the step needs, each with a one-line reason)
 6. `## Why this step matters`
-7. `## Why this technology in an MCP server: <technology>` (bullets: **What it is**, **Why an MCP server uses it**, **What it solves**, **Alternatives**)
+7. `## Why this technology in an MCP server: <technology>` (bullets: **What it is**, **Why an MCP server uses it**, **What it solves**, **Alternatives**, then a one-line **In the Agent Factory Stack.** paragraph linking the relevant section of `docs/agent-factory-stack.md`)
 8. `## What you will learn` (bullets)
 9. `## What you will build`
 10. `## Key concepts` (bold term, then a one-sentence definition)

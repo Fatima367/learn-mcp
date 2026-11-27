@@ -37,6 +37,8 @@ Every earlier step taught one technology on the same sales server, with the prom
 - **What it solves.** A real client's problem, end to end, in the AI apps they already use.
 - **Alternatives.** Use the simplest piece that meets each requirement, and say why in NOTES.md. An extra you add without a client need costs points, because clients pay for a product they can run, not for a tour of the bootcamp. A client on another cloud may need other hosting or databases, but the MCP design (tools, auth, widgets, skills, tasks and events) carries over unchanged.
 
+**In the Agent Factory Stack.** The capstone uses the whole stack, and the guide says when a client's situation justifies something else. See [When to choose something else](../docs/agent-factory-stack.md#when-to-choose-something-else) in the stack guide.
+
 ## What you will learn
 
 - Turn a client brief into an architecture, choosing the right Cloudflare service and MCP feature for each requirement (the rules in [AGENTS.md](../AGENTS.md))

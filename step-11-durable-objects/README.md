@@ -32,6 +32,8 @@ Client servers need limits and multi-call flows: "no more than 20 orders a minut
 - **What it solves.** Lost or conflicting state across tool calls, and limits that two parallel calls could both slip past.
 - **Alternatives.** Rows in Postgres with locking (slower and adds database load), an external store such as Redis, or Cloudflare's built-in rate-limiting binding for simple limits.
 
+**In the Agent Factory Stack.** Durable Objects are one of the Cloudflare services the stack adds only when a step needs them, and one of the parts that ties you to Cloudflare. See [Cloudflare services, one at a time](../docs/agent-factory-stack.md#cloudflare-services-one-at-a-time) in the stack guide.
+
 ## What you will learn
 
 - Explain what a Durable Object is: one named instance per key, with its own storage and strongly consistent reads and writes
