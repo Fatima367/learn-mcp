@@ -121,6 +121,8 @@ This bootcamp is also an assignment, and you do all your work in **your own fork
 
 > ⛔ **Do not open pull requests to this repository.** Your work stays in your fork, and you submit through the submission form. Pull requests to `panaversity/learn-mcp` will be closed without review.
 
+> 💬 **Have a question? Create an issue.** If something in a step is unclear, a prompt doesn't work as written or a link is broken, [create an issue in this repo](https://github.com/panaversity/learn-mcp/issues). Search the open issues first, name the step in the title, and never paste a key, a token or a connection string. Issues are for questions, and your fork is for your work.
+
 **1. Fork the repo.** Sign in to GitHub, open [panaversity/learn-mcp](https://github.com/panaversity/learn-mcp), and click **Fork** (top right). Choose your own account as the owner, keep the name `learn-mcp`, and click **Create fork**.
 
 **2. Clone your fork** (not the original). In [GitHub Desktop](https://desktop.github.com/download/), signed in to your GitHub account, choose **File → Clone Repository**, pick `<your-username>/learn-mcp` on the **GitHub.com** tab, choose where to save it, and click **Clone**. When GitHub Desktop asks how you plan to use this fork, choose **For my own purposes**, because you never send work back to the bootcamp repo.
@@ -159,7 +161,7 @@ Then type `/` in a thread's prompt box: you should see `build-mcp-server`, `buil
 
 Each step lives in its own numbered directory and builds on the one before it. Each folder holds a README that tells you what to build and gives you the prompts to build it with Claude. There is no starter or solution code to download: **you write the code yourself**, with Claude, in your own fork, and that code is what you submit.
 
-**What "Ready to build" means.** The **Instructions** column says a step's learning instructions are complete: what to build, the book lessons, the prompts and the submission checklist. It does not say that a reference implementation of the step has been independently built and tested. The bootcamp team is building the steps alongside the first cohort, and tools and vendor APIs change, so if a prompt or a link doesn't work as written, tell your instructor and sync your fork to pick up fixes.
+**What "Ready to build" means.** The **Instructions** column says a step's learning instructions are complete: what to build, the book lessons, the prompts and the submission checklist. It does not say that a reference implementation of the step has been independently built and tested. The bootcamp team is building the steps alongside the first cohort, and tools and vendor APIs change, so if a prompt or a link doesn't work as written, [create an issue](https://github.com/panaversity/learn-mcp/issues) and sync your fork to pick up fixes.
 
 Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and working with Claude in a Claude project). If you pass its seven checks, you go straight to step 1.
 
