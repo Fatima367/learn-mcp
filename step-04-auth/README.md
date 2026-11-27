@@ -68,7 +68,7 @@ The notes server from steps 2 and 3, now behind sign-in. Every user belongs to a
 - **Tenant**: A customer company. One server serves many tenants, and no tenant ever sees another's people or data.
 - **Role**: What a member may do inside their company, such as `member` or `admin`, checked by the server on every call.
 - **Single sign-on (SSO)**: Signing in with the account a person's company already manages, over OIDC or SAML. It proves who they are, and your server still decides what they may do.
-- **Enterprise-Managed Authorization**: An official, stable MCP extension, built with Okta and others, for a world where agents run without someone clicking a consent button. The company's identity provider gives the AI app a pass (an ID-JAG) that your auth server trades for an ordinary token, so an admin decides once which employees may use the server.
+- **Enterprise-Managed Authorization**: An official, stable MCP extension, built with Okta and others, for a world where agents run without someone clicking a consent button. The company's identity provider gives the AI app a pass (an ID-JAG) that your auth server trades for an ordinary token, so an admin decides once which employees may use the server. MCP's maintainers are also drafting authorization extensions that tie a token to the client that requested it and let cloud agents sign in with their own identity, the first steps toward agent identity ([MCP blog](https://blog.modelcontextprotocol.io/posts/mcp-turns-two/)); none of this changes what you build here.
 - **Client registration**: How an AI app identifies itself to your auth server. The 2026-07-28 spec prefers Client ID Metadata Documents (the client's ID is a URL to its own description) over Dynamic Client Registration.
 
 ## Outline

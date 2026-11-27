@@ -26,7 +26,7 @@ Text is a poor interface for data. MCP Apps is the open standard for interactive
 
 ## Why this technology in an MCP server: MCP Apps (interactive UI in the chat)
 
-- **What it is.** MCP Apps is the MCP extension for interactive UI. The server registers an HTML/JS app as a `ui://` resource, a tool points to it, and the host renders it in a sandboxed frame inside the chat. We build the apps with React.
+- **What it is.** MCP Apps is the MCP extension for interactive UI. The server registers an HTML/JS app as a `ui://` resource, a tool points to it, and the host renders it in a sandboxed frame inside the chat. It grew out of the community's MCP-UI project and OpenAI's Apps SDK, and it was MCP's first official extension, so the same app works in ChatGPT, Claude, Goose and Visual Studio Code. Real products already ship this way: AllTrails, for example, shows hikes on a map right in the chat ([MCP blog](https://blog.modelcontextprotocol.io/posts/mcp-turns-two/)). We build the apps with React.
 - **Why an MCP server uses it.** Text is a poor way to show a table of orders, a chart or a form. MCP Apps lets a tool return a real interface in Claude and ChatGPT, built once with the standard APIs, and lets the widget call tools back through the host.
 - **What it solves.** Users get screens they can read and act on without leaving the chat, and you ship one UI that works in both major clients instead of building a separate web app.
 - **Alternatives.** Client-specific APIs such as ChatGPT-only `window.openai` calls (we avoid them to stay portable), markdown tables or images in text replies, or a separate web app that users have to switch to.
