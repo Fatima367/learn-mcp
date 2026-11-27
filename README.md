@@ -119,7 +119,7 @@ This bootcamp follows the way Panaversity's own team works: Claude does most of 
 
 This bootcamp is also an assignment, and you do all your work in **your own fork** of this repo.
 
-> ⛔ **Do not open pull requests to this repository.** Your work stays in your fork, and you submit through the submission form. Pull requests to `panaversity/learn-mcp` will be closed without review.
+> ⛔ **Do not open pull requests to this repository.** Your work stays in your fork, and you submit through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6). Pull requests to `panaversity/learn-mcp` will be closed without review.
 
 > 💬 **Have a question? Create an issue.** If something in a step is unclear, a prompt doesn't work as written or a link is broken, [create an issue in this repo](https://github.com/panaversity/learn-mcp/issues). Search the open issues first, name the step in the title, and never paste a key, a token or a connection string. Issues are for questions, and your fork is for your work.
 
@@ -135,7 +135,7 @@ This bootcamp is also an assignment, and you do all your work in **your own fork
 
 To avoid merge conflicts, don't edit the bootcamp's own files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, or the `README.md` in each step folder). Put your own notes in a `NOTES.md` inside the step folder.
 
-**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, commit and tag it in GitHub Desktop (in **History**, right-click the commit, choose **Create Tag…** and name it `step-01-done`, then click **Push origin**), and submit it through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
+**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, commit and tag it in GitHub Desktop (in **History**, right-click the commit, choose **Create Tag…** and name it `step-01-done`, then click **Push origin**), and submit it through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6). **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
 
 ### Built-in skills
 

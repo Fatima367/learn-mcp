@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form (it [opens later](#8-submit-the-step); build and tag your steps in the meantime).
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6).
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork. If you have a question, [create an issue](https://github.com/panaversity/learn-mcp/issues) instead (see [Getting help](#getting-help)).
 
@@ -98,9 +98,9 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 
 Submit each step through the form:
 
-**📝 Submission form: graded submissions are not open yet. They will open later, and the link to the form will be added here.**
+**📝 Submission form: [https://forms.gle/u1m8F7UjDJxk3J9M6](https://forms.gle/u1m8F7UjDJxk3J9M6)**
 
-> You don't have to wait for the form to start building. Keep each finished step tagged and pushed, keep its server running, and submit every finished step once the form opens. When a step's checklist says "Submitted in the form", that is the one item to leave until then.
+> Tag and push a step before you submit it, and keep its server running until it is graded.
 
 For each step, the form asks for:
 
@@ -153,4 +153,4 @@ Talk, don't read: a script written by an AI and read aloud doesn't count as a de
 
 - Re-read the step's README and ask Claude (in a thread of your Claude project) to explain whatever is unclear.
 - Still stuck, or found a prompt or a link that doesn't work? [Create an issue in the bootcamp repo](https://github.com/panaversity/learn-mcp/issues). Search the open issues first, name the step in the title, say what you tried, and never paste a key, a token or a connection string.
-- Issues are for questions only. Your work is still submitted from your fork through the form, never as a pull request and never as an issue.
+- Issues are for questions only. Your work is still submitted from your fork through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6), never as a pull request and never as an issue.
