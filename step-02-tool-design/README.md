@@ -1,7 +1,5 @@
 # Step 02: Designing Good Tools
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Learn to design tools that models use correctly. That means clear names and descriptions, tight input schemas, structured outputs, sensible granularity, and annotations that tell the host which tools are safe.
 
 > 🏬 **Stockroom's ask:** Stockroom's first feature is account notes for its customers' sales reps ("called Ali at Karachi Foods, wants a price list on Friday"). Before any of it is real data, Stockroom wants notes tools the model calls correctly every time, because a wrong call in front of a customer's staff costs trust.
@@ -10,11 +8,11 @@ Learn to design tools that models use correctly. That means clear names and desc
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.2 A tool is its description](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools from their names, descriptions and schemas.
-- [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Writing errors the model can recover from.
+- [17.2 How does the model pick the right tool?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools from their names, descriptions and schemas.
+- [17.3 What should a tool say when it fails?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Writing errors the model can recover from.
 - [14.5 What a schema holds, and what it lets through](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/schema-rules/). Validating input with Zod-style schemas.
-- [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why tools on Workers must not keep state between calls.
-- [17.7 Untrusted output, and data that should not leave](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What a tool should and should not return.
+- [17.4 What if a different copy answers the next call?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why tools on Workers must not keep state between calls.
+- [17.7 What if a record tells the AI what to do?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What a tool should and should not return.
 
 **Official docs.** Keep these open while you build:
 
@@ -56,7 +54,7 @@ We refactor the step 1 server into a small "notes" toolset (`list_notes`, `get_n
 - **Annotations**: Hints about side effects that hosts use for confirmation prompts.
 - **Stateless servers**: Cloudflare may run many copies of your Worker, so anything kept in memory can vanish between calls. The notes go in Workers KV, a key-value store every copy can read. KV is eventually consistent (a change can take up to a minute to reach other regions), which is fine for notes. Business data moves to Postgres in step 5.
 
-## Planned outline
+## Outline
 
 1. Anatomy of a tool definition
 2. Naming and describing tools
@@ -75,8 +73,6 @@ We refactor the step 1 server into a small "notes" toolset (`list_notes`, `get_n
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 1 code into `step-02-tool-design/`.**
 
@@ -123,7 +119,7 @@ Deploy, then give me five realistic prompts to try in Claude and ChatGPT that ch
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -134,7 +130,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-02-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-02-done`, live server URL, and screenshots of the model choosing the right notes tool in **Claude** and **ChatGPT**
 
