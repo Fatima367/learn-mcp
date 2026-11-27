@@ -160,8 +160,10 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite passes for a shared-tier and a dedicated-tier company, and no tool accepts a company or user ID as input
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (custom MCP server)
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing two users in different companies each seeing only their own data, and of a cross-company request being refused, in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-07-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-07-done`, live server URL, and screenshots of two users in different companies each seeing only their own data, and of a cross-company request being refused, in **Claude** and **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

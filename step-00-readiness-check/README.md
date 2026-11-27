@@ -271,7 +271,7 @@ Create step-00-readiness-check/NOTES.md (leave README.md alone, because it belon
 
 ## Submission checklist
 
-Step 00 isn't graded and has no form entry. Before you start Step 01, make sure that:
+Step 00 isn't graded and needs no screenshots. Before you start Step 01, make sure that:
 
 - [ ] Your fork exists, is cloned with GitHub Desktop, and is added, with your GitHub fork, to a Claude project whose instructions say never to commit or push
 - [ ] `node` (version 24 or later), `npm`, `git` and `npx wrangler` all print a version

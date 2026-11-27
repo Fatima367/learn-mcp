@@ -129,8 +129,10 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite runs in CI on every push
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (custom MCP server)
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing passing CI, your eval results, and a trace of a tool call from **Claude** or **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-17-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-17-done`, live server URL, and screenshots of passing CI, your eval results, and a trace of a tool call from **Claude** or **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

@@ -178,9 +178,12 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Every Core row is implemented, and at least two Extra rows, each justified in NOTES.md (with a fallback where a client doesn't support an extension yet)
 - [ ] NOTES.md has the architecture, evaluation results, setup steps, demo script and price
 - [ ] CLIENT.md has the discovery notes, proposal, price, demo feedback and acceptance test results
-- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and its link added to this step's NOTES.md
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing at least three different screens chosen from intent in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
+- [ ] A demo video of up to three minutes is recorded, and its link is in NOTES.md
 - [ ] Tagged `step-21-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-21-done`, live server URL, screenshots of at least three different screens chosen from intent in **Claude** and **ChatGPT**, and a link to a demo video of up to three minutes
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

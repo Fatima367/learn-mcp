@@ -158,9 +158,11 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (custom MCP server)
-- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and its link added to this step's NOTES.md
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing signing in and using your own notes in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-04-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-04-done`, live server URL, and screenshots of signing in and using your own notes in **Claude** and **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

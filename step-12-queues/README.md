@@ -134,8 +134,10 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Authority at run time: a test removes the user mid-import, and the remaining batches are refused instead of written
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (custom MCP server)
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing a bulk import being started and its status (including failed rows) in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-12-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-12-done`, live server URL, and screenshots of a bulk import being started and its status (including failed rows) in **Claude** and **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

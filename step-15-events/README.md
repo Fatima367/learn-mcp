@@ -122,9 +122,11 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: events and subscriptions never cross companies, and the test for it passes
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (custom MCP server), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
-- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and its link added to this step's NOTES.md
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing an event being received (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-15-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-15-done`, live server URL, and screenshots of an event being received (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

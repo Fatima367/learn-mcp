@@ -143,8 +143,10 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: SECURITY.md covers cross-tenant attacks (guessed IDs, injected company names, shared caches) and stale authority in background work (a removed or demoted user's job), each with a passing test
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (custom MCP server)
+- [ ] Screenshots are committed in this step's folder as `claude.png` and `chatgpt.png` (add more files if you need them, and crop out anything private), showing a refused request (wrong token or another user's data) and of the injection test passing, plus the server still working in **Claude** and **ChatGPT**
+- [ ] NOTES.md starts with this step's live `/mcp` URL
 - [ ] Tagged `step-16-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-16-done`, live server URL, and screenshots of a refused request (wrong token or another user's data) and of the injection test passing, plus the server still working in **Claude** and **ChatGPT**
+- [ ] Submitted once through the [form](https://forms.gle/u1m8F7UjDJxk3J9M6), or your response there updated: fork URL, the last step you completed and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-your-work))
 
 ## References
 

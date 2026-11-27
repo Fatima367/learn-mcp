@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6).
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit your fork once through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6). The grader reads everything else from your fork: your code, your step tags, your notes and your screenshots.
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork. If you have a question, [create an issue](https://github.com/panaversity/learn-mcp/issues) instead (see [Getting help](#getting-help)).
 
@@ -72,11 +72,11 @@ Every student deploys to **their own** accounts:
 - **Neon:** your own project, from step 5, with one branch per step (`step-05`, `step-06` …). Each step's first prompt creates its branch, so a later step's migrations never break an earlier step that is still being graded. Once a step's grade is in you may delete its branch, which you'll need to do on Neon's Free plan (see [Costs and cleanup](docs/costs-and-cleanup.md))
 - **Claude and ChatGPT:** connect your deployed server as a custom connector in claude.ai or Claude Desktop, and in ChatGPT as a custom MCP server
 
-Keep your server running until your step has been graded.
+Keep each step's server running until it has been graded, and write its live `/mcp` URL at the top of that step's `NOTES.md`, so the grader can find the server for every step, not only the last one.
 
 ## 6. Tag each finished step
 
-When a step is finished, deployed and tested, tag the commit and push the tag in GitHub Desktop:
+When a step is finished, deployed and tested, and its screenshots are committed (see [section 8](#8-submit-your-work)), tag the commit and push the tag in GitHub Desktop:
 
 1. Open the **History** tab, right-click the step's last commit, and choose **Create Tag…**.
 2. Name it `step-01-done` and click **Create Tag**.
@@ -86,7 +86,7 @@ Check the tag appears under **Tags** on your fork's GitHub page.
 
 Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step is committed before you tag.
 
-Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, push it, and submit that tag in the form.
+Tags are final: never move or delete a tag you have pushed, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, and push it. The grader reads the highest version of each step's tag.
 
 ## 7. Keep secrets out of git
 
@@ -94,35 +94,40 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 - Never commit `.dev.vars`, API keys, database connection strings or tokens. Commit a `.dev.vars.example` with placeholder values instead.
 - If you commit a secret by accident, **rotate it right away** (create a new key or password). Deleting the commit isn't enough, because your fork is public.
 
-## 8. Submit the step
+## 8. Submit your work
 
-Submit each step through the form:
+You submit **once**, through the form, and your work is judged from your fork. So push everything first, then fill in the form.
 
 **📝 Submission form: [https://forms.gle/u1m8F7UjDJxk3J9M6](https://forms.gle/u1m8F7UjDJxk3J9M6)**
 
-> Tag and push a step before you submit it, and keep its server running until it is graded.
+**Before you submit, for every step you finished, your fork has:**
 
-For each step, the form asks for:
+- the step's code, committed and pushed, with its `step-NN-done` tag;
+- the step's screenshots, saved in the step's folder as **`claude.png`** (the step working in claude.ai or Claude Desktop) and **`chatgpt.png`** (the same thing in ChatGPT). The step's submission checklist says what they must show. If a step needs more than one picture for a client, add more files with clear names, such as `claude-2.png`. Crop out anything private (email addresses, other chats, keys) before you commit them, because your fork is public. Commit them before you tag the step;
+- the step's `NOTES.md`, with its live `/mcp` URL at the top and, for a milestone step, the link to its defence video (see [Defend your project](#10-defend-your-project)).
+
+**The form asks for:**
 
 | Field | Example |
 | --- | --- |
+| Your name and contact details, where you study and your roll number or student ID | |
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
-| Step tag | `step-01-done` |
-| Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
-| Screenshot: Claude | The step's tool or widget working in claude.ai or Claude Desktop |
-| Screenshot: ChatGPT | The same thing working in ChatGPT |
-| Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+| The last step you completed | `8` |
+| Live MCP server URL of that step | `https://learn-mcp-step-08.<your-subdomain>.workers.dev/mcp` |
+| Link to your project defence video (optional) | Your latest defence, if you have reached a milestone (steps 4, 8, 10, 15, 18 or 21) |
+
+The form states its own deadline, and you can edit your response until then, so submit when your fork is ready and update your answers if you finish more steps. The form has no place to upload files: screenshots, tags and notes all come from your fork.
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
 ## 9. How each step is graded
 
-Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag and the live server URL you submit.
+Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag, the screenshots in the step's folder and the step's live server (the URL in the form for your last step, and the one in `NOTES.md` for earlier steps).
 
 | Criterion | Points | What the grader checks |
 | --- | --- | --- |
-| Works in Claude | 2 | The step's tools (and widgets, from step 9) work in claude.ai or Claude Desktop, as your screenshot shows |
-| Works in ChatGPT | 2 | The same in ChatGPT as a custom MCP server. For an extension a client doesn't support yet, your NOTES.md records the support status and the fallback works |
+| Works in Claude | 2 | The step's tools (and widgets, from step 9) work in claude.ai or Claude Desktop, as `claude.png` in the step's folder shows |
+| Works in ChatGPT | 2 | The same in ChatGPT as a custom MCP server, as `chatgpt.png` shows. For an extension a client doesn't support yet, your NOTES.md records the support status and the fallback works |
 | Builds what the step asks | 2 | Everything in the step's **What you will build** and **Submission checklist** is there, inside the remote MCP server |
 | Design and code quality | 1 | Clear tool names, descriptions and schemas, correct annotations, recoverable errors, no state kept in the Worker's memory, readable code |
 | Security and tenant isolation | 2 | No secrets in git, inputs validated, every data access scoped to the signed-in user and their company (from step 4), and from step 7 the cross-tenant suite passes and the step's tenant-isolation checklist item is met |
@@ -130,7 +135,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 **Project defence (steps 4, 8, 10, 15, 18 and 21):** these steps end a milestone, and each needs a recorded defence (section 10) as well as the points above. The defence is pass or fail. A step that needs one doesn't pass without it, however many points it scores, and it doesn't pass if the defence shows you can't explain your own code. A failed defence can be re-recorded once.
 
-**Automatic fail for the step:** any way for one company to reach another company's data (or, from step 20, to change another company's plan or usage), a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
+**Automatic fail for the step:** any way for one company to reach another company's data (or, from step 20, to change another company's plan or usage), a committed secret that wasn't rotated, a server that can't be reached at the URL you gave for it, or code copied from another student.
 
 **Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). It passes at **14 of 20**, with at least 7 of the first 10. The automatic fails above apply to the capstone too, whatever its total: a cross-tenant leak, an unrotated committed secret, an unreachable server, copied code, or (if you built billing) a way for one company to get another's plan or be charged for another's usage. The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
 
@@ -138,7 +143,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 Claude Code writes much of your code, so the bootcamp checks that you understand what it wrote. At the end of each milestone (steps 4, 8, 10, 15, 18 and the step 21 capstone) you record a short **project defence**: a screen recording, with your voice, of you walking through your own code. It is the same conversation a client or an interviewer will have with you.
 
-**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Link it in the form with the step.
+**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Put the link in that step's `NOTES.md`, and give the link to your latest defence in the form.
 
 Cover these four things, in your own words:
 
@@ -153,4 +158,4 @@ Talk, don't read: a script written by an AI and read aloud doesn't count as a de
 
 - Re-read the step's README and ask Claude (in a thread of your Claude project) to explain whatever is unclear.
 - Still stuck, or found a prompt or a link that doesn't work? [Create an issue in the bootcamp repo](https://github.com/panaversity/learn-mcp/issues). Search the open issues first, name the step in the title, say what you tried, and never paste a key, a token or a connection string.
-- Issues are for questions only. Your work is still submitted from your fork through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6), never as a pull request and never as an issue.
+- Issues are for questions only. Your work is still submitted from your fork, once, through the [submission form](https://forms.gle/u1m8F7UjDJxk3J9M6), never as a pull request and never as an issue.

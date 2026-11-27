@@ -219,7 +219,7 @@ When you add, rename or reorder a step, update all of these together:
 
 ## Students and submissions
 
-This repo is a student assignment. Students **fork** it, work in their fork, and submit through a form (see `SUBMITTING.md`).
+This repo is a student assignment. Students **fork** it, work in their fork, and submit once through a form that asks for the fork's URL, the last step completed and that step's live server URL (see `SUBMITTING.md` section 8). Everything else is judged from the fork: code, `step-NN-done` tags, `NOTES.md` (with each step's live `/mcp` URL and any defence video link) and screenshots saved in each step folder as `claude.png` and `chatgpt.png`. Keep the step checklists and `SUBMITTING.md` consistent with what the form asks.
 
 - **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
 - **Questions go in an issue.** A student with a question, or who finds a prompt or link that doesn't work, creates an issue in the bootcamp repo (https://github.com/panaversity/learn-mcp/issues). Issues are for questions only, never for submitting work, and must not contain secrets. Keep this in the root README and in `SUBMITTING.md` (Getting help), beside the no-pull-requests rule.
