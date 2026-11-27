@@ -8,6 +8,9 @@
 
 Welcome, readers of [The AI Agent Factory](https://agentfactory.panaversity.org/)! If you have finished your study for [PCAO-F](https://agentfactory.panaversity.org/appendices/exams/associate-foundations/overview/) (Panaversity Certified Associate: Foundations), congratulations: you already know how to work with AI agents and manage the work they do. Now it's time to build. This bootcamp is your hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), Anthropic's developer exam, and for **PCDV-F** (Panaversity Certified Developer: Foundations), the Panaversity exam that mirrors it. Just as important, it teaches you to monetize these skills in the international market: building MCP apps for paying clients as a **Forward Deployed Engineer (FDE)** or for your own startup.
 
+> [!NOTE]
+> **🏆 Pakistan's First FDE Hackathon: Build and Sell MCP Apps.** Complete this bootcamp in your fork and submit it by **Sunday 13 December 2026, 11:59 PM (PKT)** for a chance to work with Zia Khan and his team on Business MCP Apps for the international market. Open to everyone in Pakistan, free to enter. **[Read the hackathon announcement](docs/fde-hackathon.md)**.
+
 > [!TIP]
 > **💰 On a budget?** Start with our student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**: which AI tools are free, what is worth paying for, and how to compare costs before you buy. See also [What it costs](#what-it-costs) for this bootcamp.
 

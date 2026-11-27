@@ -100,6 +100,8 @@ You submit **once**, through the form, and your work is judged from your fork. S
 
 **📝 Submission form: [https://forms.gle/u1m8F7UjDJxk3J9M6](https://forms.gle/u1m8F7UjDJxk3J9M6)**
 
+Taking part in the [FDE Hackathon](docs/fde-hackathon.md)? This is the same form. Submissions close on **Sunday 13 December 2026, 11:59 PM (PKT)**.
+
 **Before you submit, for every step you finished, your fork has:**
 
 - the step's code, committed and pushed, with its `step-NN-done` tag;
