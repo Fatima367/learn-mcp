@@ -13,6 +13,7 @@ One idea sits under all five steps: **AI does most of the work, and a person dec
 ## Contents
 
 - [The five steps at a glance](#the-five-steps-at-a-glance)
+- [Your first time](#your-first-time)
 - [Words you need](#words-you-need)
 - [How much of the method to use](#how-much-of-the-method-to-use)
 - [Step 1: Understand and define the problem](#step-1-understand-and-define-the-problem)
@@ -35,6 +36,18 @@ One idea sits under all five steps: **AI does most of the work, and a person dec
 | **3. Write the four-part brief** | Outcome, context, format and constraints, with the checks the work must pass. | Each step's prompts under **Build it with Claude Code** are briefs written for you. Read each one before you paste it, so you know what "done" means. In the capstone, you write your own. |
 | **4. Improve the work with the Dr. Gilsdorf method** | Grade and improve the work in rounds toward 9.5 out of 10, run the checks, and get an independent review from a second AI. | Before you commit each step, use the [end-of-step prompt](#a-prompt-for-the-end-of-each-step). The step's tests and checklist are the pass-or-fail checks. For milestone steps (4, 8, 10, 15, 18 and 21), ask a second AI to review your code too. |
 | **5. Check and commit** | A person checks the final result, approves it and saves it as the official version. | Test the deployed server in Claude and ChatGPT, read the diff in GitHub Desktop, then commit, tag `step-NN-done` and push it yourself. Write what you learned in the step's `NOTES.md`, and submit as [SUBMITTING.md](../SUBMITTING.md) says. |
+
+## Your first time
+
+You don't need every part of the method on day one. In [Step 00](../step-00-readiness-check/README.md) and step 1, do just this:
+
+1. Read Stockroom's ask and write one "Done when" sentence for the step in `NOTES.md`.
+2. Fork and clone the repo, and add the folder and your fork to a Claude project that is told never to commit or push.
+3. In one thread, paste the step's prompts: they are your brief.
+4. Ask Claude to run the step's tests, grade the work out of 10 and improve it twice.
+5. Read the diff in GitHub Desktop, then commit, tag and push it yourself.
+
+Add the rest, such as the full grading rounds and the second AI's review, as the steps grow. By the first milestone (step 4), use all five steps.
 
 ## Words you need
 
@@ -107,6 +120,8 @@ You set it up once, in [Step 00](../step-00-readiness-check/README.md), followin
 | Your review and commits | GitHub Desktop |
 | Your own editing | VS Code |
 | Independent AI reviewer | ChatGPT |
+
+**Keep the work in text.** Code, `NOTES.md`, your own briefs and any data you add are all plain text, so every change shows line by line in GitHub Desktop and the history shows what changed and when. Keep it that way: write notes and briefs in Markdown, keep seed data as CSV or SQL, and let screenshots (`claude.png`, `chatgpt.png`) be the only images you add.
 
 **Keep secrets and accounts safe.** A rule in a prompt guides Claude, but only permissions enforce a limit, so set limits Claude can't step over:
 
