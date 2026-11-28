@@ -119,7 +119,7 @@ You set it up once, in [Step 00](../step-00-readiness-check/README.md), followin
 | Version control and shared copy | Git and GitHub |
 | Your review and commits | GitHub Desktop |
 | Your own editing | VS Code |
-| Independent AI reviewer | ChatGPT |
+| Independent AI reviewer | ChatGPT: Codex on the same local folder, or ChatGPT on the web with a zip |
 
 **Keep the work in text.** Code, `NOTES.md`, your own briefs and any data you add are all plain text, so every change shows line by line in GitHub Desktop and the history shows what changed and when. Keep it that way: write notes and briefs in Markdown, keep seed data as CSV or SQL, and let screenshots (`claude.png`, `chatgpt.png`) be the only images you add.
 
@@ -164,7 +164,7 @@ A first version is rarely the best one, and many small rounds of improvement are
 
 1. **Claude runs the checks and grades the work out of 10** in each area, with the best model your plan offers. Every grade cites its evidence: a test result, a file and line, a screenshot.
 2. **Claude improves it until each area reaches 9.5 and every check passes.** It improves a little, checks and grades again, and repeats. A grade goes up only when the code changed or new evidence came in.
-3. **A second AI reviews it independently** (for milestone steps, and whenever you want a second opinion), such as ChatGPT. Send the step's README, your code and the test results, but not Claude's grades, so the reviewer judges the work for itself. Never send `.dev.vars`, keys or connection strings. Ask for findings, each with the problem, its evidence, how serious it is and a fix.
+3. **A second AI reviews it independently** (for milestone steps, and whenever you want a second opinion), ChatGPT first. Open the same local folder in **Codex**, OpenAI's coding agent, and tell it to review only and change no files: it then reads your code, the step's README and the test results exactly as they are. If you can't use Codex, ask Claude to make a zip of the step folder (without `.dev.vars`, `node_modules/` and `.wrangler/`) and give the zip to ChatGPT on the web. Either way, don't show it Claude's grades, so the reviewer judges the work for itself. Codex can read every file in the folder, so keep only bootcamp test keys in `.dev.vars`. Ask for findings, each with the problem, its evidence, how serious it is and a fix.
 4. **Paste the review back into Claude,** which weighs each finding, fixes the ones that hold up, and says why it rejected any others.
 5. **Claude runs every check again on the final version,** because a fix can break something that passed before. Only then does the work go to Step 5.
 
@@ -218,7 +218,7 @@ Paste this into the step's thread when the build is done, before you commit:
 Before I commit this step, run its tests and go through its submission checklist item by item. Then grade the work out of 10 in three areas: correctness, security and tenant isolation, and clarity of the code for a reader. Give the evidence for each grade. A failed test or checklist item counts for more than any grade. Improve the work in small rounds until every test passes and each area reaches 9.5, for at most three rounds, and then list anything still open and anything you couldn't verify. Never commit or push.
 ```
 
-For a milestone step, then give your code (never `.dev.vars` or keys) to a second AI, such as ChatGPT, and ask it to review and grade the same three areas, with specific fixes and evidence. Don't show it Claude's grades. Paste its review back into the thread and ask Claude to weigh each point, fix what is right, and run the tests again.
+For a milestone step, then ask a second AI to review it: open the same folder in Codex (review only, no changes), or, if you can't, ask Claude for a zip of the step folder without `.dev.vars` and give it to ChatGPT on the web. Ask it to review and grade the same three areas, with specific fixes and evidence. Don't show it Claude's grades. Paste its review back into the thread and ask Claude to weigh each point, fix what is right, and run the tests again.
 
 ## Checklist before you tag a step
 
