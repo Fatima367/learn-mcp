@@ -89,6 +89,8 @@ The notes server from steps 2 and 3, now behind sign-in. Every user belongs to a
 
 ## Build it with Claude Code
 
+> 🧭 **Work with the [Panaversity AI Method](../docs/panaversity-ai-method.md).** Read Stockroom's ask and the submission checklist first, paste the prompts below as your brief, then improve, check and commit with the [end-of-step prompt](../docs/panaversity-ai-method.md#a-prompt-for-the-end-of-each-step).
+
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 3 code into `step-04-auth/`.**

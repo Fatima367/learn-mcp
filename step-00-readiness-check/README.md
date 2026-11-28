@@ -249,6 +249,8 @@ Your fork of the bootcamp, cloned locally and added, with your GitHub fork, to a
 
 ## Build it with Claude Code
 
+> 🧭 **The [Panaversity AI Method](../docs/panaversity-ai-method.md).** This step is its step 2: you set up the environment you use for every step that follows.
+
 **1. Fork and clone the repo with GitHub Desktop.** Follow [Set up: fork, clone and sync](../README.md#set-up-fork-clone-and-sync) in the main README. That is the first part of check 1 (Git and GitHub).
 
 **2. Set up your Claude project and start a thread.** Follow [How we work](../README.md#how-we-work-local-first-human-in-the-loop), steps 2 and 3: create a project, add your local `learn-mcp` folder and your GitHub fork, write the project instructions (including "never commit or push"), and add the bootcamp's skills to your Claude account: install Anthropic's `mcp-server-dev` plugin under **Customize → Plugins**, or upload the skills under **Customize → Skills** (step-by-step in [Built-in skills](../README.md#built-in-skills)). Then start a thread and paste this prompt. That is check 7 in practice.
